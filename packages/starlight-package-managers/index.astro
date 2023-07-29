@@ -1,31 +1,25 @@
 ---
 import { Tabs, TabItem } from '@astrojs/starlight/components'
 import { Code } from 'astro/components'
+
+import { pkgManagers } from './pkg'
+
+interface Props {
+  type?: 'install'
+}
+
+const { type = 'install' } = Astro.props
+
+// FIXME(HiDeoo)
+console.log('🚨 [index.astro:11] type:', type)
 ---
 
 <Tabs>
-  <TabItem label="npm">
-    <Code
-      code={`# create a new project with npm
-npm create astro@latest -- --template starlight`}
-      lang="sh"
-      theme="css-variables"
-    />
-  </TabItem>
-  <TabItem label="yarn">
-    <Code
-      code={`# create a new project with yarn
-yarn create astro@latest -- --template starlight`}
-      lang="sh"
-      theme="css-variables"
-    />
-  </TabItem>
-  <TabItem label="pnpm">
-    <Code
-      code={`# create a new project with pnpm
-pnpm create astro@latest -- --template starlight`}
-      lang="sh"
-      theme="css-variables"
-    />
-  </TabItem>
+  {
+    pkgManagers.map((pkgManager) => (
+      <TabItem label={pkgManager}>
+        <Code code={pkgManager} lang="sh" theme="css-variables" />
+      </TabItem>
+    ))
+  }
 </Tabs>
