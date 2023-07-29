@@ -7,7 +7,10 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/HiDeoo/starlight-package-managers/edit/main/example/',
       },
-      sidebar: [{ label: 'Getting Started', link: '/guides/getting-started/' }],
+      sidebar: [
+        { label: 'Getting Started', link: '/guides/getting-started/' },
+        { label: 'Usage', link: '/guides/usage/' },
+      ],
       social: {
         github: 'https://github.com/HiDeoo/starlight-package-managers',
       },
