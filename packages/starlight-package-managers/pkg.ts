@@ -6,28 +6,33 @@ const commands: Commands = {
     create: 'npm create',
     devOption: '-D',
     exec: 'npx',
+    run: 'npm run',
   },
   yarn: {
     add: 'yarn add',
     create: 'yarn create',
     devOption: '-D',
     exec: 'yarn',
+    run: 'yarn run',
   },
   pnpm: {
     add: 'pnpm add',
     create: 'pnpm create',
     devOption: '-D',
     exec: 'pnpm',
+    run: 'pnpm run',
   },
   bun: {
     add: 'bun add',
     devOption: '-d',
     exec: 'bunx',
+    run: 'bun run',
   },
   ni: {
     add: 'ni',
     devOption: '-D',
     exec: 'nlx',
+    run: 'nr',
   },
 }
 
@@ -35,10 +40,15 @@ export function getSupportedPkgManagers(type: CommandType) {
   return pkgManagers.filter((pkgManager) => commands[pkgManager][type] !== undefined)
 }
 
-export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: string, options: CommandOptions) {
+export function getCommand(
+  pkgManager: PackageManager,
+  type: CommandType,
+  pkg: string | undefined,
+  options: CommandOptions,
+) {
   let command = commands[pkgManager][type]
 
-  if (command === undefined) {
+  if (!command) {
     throw new Error(`Command type '${type}' is not supported for package manager '${pkgManager}'.`)
   }
 
@@ -46,10 +56,12 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
     command += ` ${commands[pkgManager].devOption}`
   }
 
-  command += ` ${pkg}`
+  if (pkg) {
+    command += ` ${pkg}`
+  }
 
   if (options.args && options.args.length > 0) {
-    if (pkgManager === 'npm' && type !== 'exec') {
+    if (pkgManager === 'npm' && type !== 'exec' && type !== 'run') {
       command += ' --'
     }
 
@@ -59,7 +71,7 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
   return command
 }
 
-export type CommandType = 'add' | 'create' | 'exec'
+export type CommandType = 'add' | 'create' | 'exec' | 'run'
 
 export interface CommandOptions {
   args?: string

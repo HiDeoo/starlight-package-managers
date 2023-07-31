@@ -72,6 +72,18 @@ describe('exec', () => {
   })
 })
 
+describe('run', () => {
+  test("should generate the 'run' command", () => {
+    expect(getCommands('run', '', { args: 'dev' })).toEqual([
+      'npm run dev',
+      'yarn run dev',
+      'pnpm run dev',
+      'bun run dev',
+      'nr dev',
+    ])
+  })
+})
+
 function getCommands(...args: OmitFirstParameter<typeof getCommand>) {
   return getSupportedPkgManagers(args[0]).map((pkgManager) => getCommand(pkgManager, ...args))
 }

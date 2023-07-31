@@ -5,7 +5,7 @@ import { Code } from 'astro/components'
 import { type CommandType, getCommand, type CommandOptions, getSupportedPkgManagers } from './pkg'
 
 interface Props extends CommandOptions {
-  pkg: string
+  pkg?: string | undefined
   type?: CommandType
 }
 
