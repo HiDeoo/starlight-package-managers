@@ -5,24 +5,29 @@ const commands: Commands = {
     add: 'npm i',
     create: 'npm create',
     devOption: '-D',
+    exec: 'npx',
   },
   yarn: {
     add: 'yarn add',
     create: 'yarn create',
     devOption: '-D',
+    exec: 'yarn',
   },
   pnpm: {
     add: 'pnpm add',
     create: 'pnpm create',
     devOption: '-D',
+    exec: 'pnpm',
   },
   bun: {
     add: 'bun add',
     devOption: '-d',
+    exec: 'bunx',
   },
   ni: {
     add: 'ni',
     devOption: '-D',
+    exec: 'nlx',
   },
 }
 
@@ -44,7 +49,7 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
   command += ` ${pkg}`
 
   if (options.args && options.args.length > 0) {
-    if (pkgManager === 'npm') {
+    if (pkgManager === 'npm' && type !== 'exec') {
       command += ' --'
     }
 
@@ -54,7 +59,7 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
   return command
 }
 
-export type CommandType = 'add' | 'create'
+export type CommandType = 'add' | 'create' | 'exec'
 
 export interface CommandOptions {
   args?: string

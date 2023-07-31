@@ -60,6 +60,18 @@ describe('create', () => {
   })
 })
 
+describe('exec', () => {
+  test("should generate the 'exec' command", () => {
+    expect(getCommands('exec', 'astro', { args: 'add solid' })).toEqual([
+      'npx astro add solid',
+      'yarn astro add solid',
+      'pnpm astro add solid',
+      'bunx astro add solid',
+      'nlx astro add solid',
+    ])
+  })
+})
+
 function getCommands(...args: OmitFirstParameter<typeof getCommand>) {
   return getSupportedPkgManagers(args[0]).map((pkgManager) => getCommand(pkgManager, ...args))
 }
