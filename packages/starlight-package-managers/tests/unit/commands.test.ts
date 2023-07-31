@@ -43,7 +43,14 @@ describe('create', () => {
       'npm create astro@latest',
       'yarn create astro@latest',
       'pnpm create astro@latest',
-      'bun create astro@latest',
+    ])
+  })
+
+  test("should generate the 'create' command with additional arguments", () => {
+    expect(getCommands('create', 'astro', { args: '--template starlight' })).toEqual([
+      'npm create astro -- --template starlight',
+      'yarn create astro --template starlight',
+      'pnpm create astro --template starlight',
     ])
   })
 })

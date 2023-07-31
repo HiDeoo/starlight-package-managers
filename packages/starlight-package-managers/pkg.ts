@@ -18,7 +18,6 @@ const commands: Commands = {
   },
   bun: {
     add: 'bun add',
-    create: 'bun create',
     devOption: '-d',
   },
   ni: {
@@ -44,12 +43,21 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
 
   command += ` ${pkg}`
 
+  if (options.args && options.args.length > 0) {
+    if (pkgManager === 'npm') {
+      command += ' --'
+    }
+
+    command += ` ${options.args}`
+  }
+
   return command
 }
 
 export type CommandType = 'add' | 'create'
 
 export interface CommandOptions {
+  args?: string
   dev?: boolean
 }
 
