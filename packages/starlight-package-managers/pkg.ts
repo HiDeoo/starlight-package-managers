@@ -37,7 +37,7 @@ export function getCommand(pkgManager: PackageManager, type: CommandType, pkg: s
     throw new Error(`Command type '${type}' is not supported for package manager '${pkgManager}'.`)
   }
 
-  if (options.dev) {
+  if (type === 'add' && options.dev) {
     command += ` ${commands[pkgManager].devOption}`
   }
 

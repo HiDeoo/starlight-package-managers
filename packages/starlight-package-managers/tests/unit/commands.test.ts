@@ -33,8 +33,13 @@ describe('add', () => {
     ])
   })
 
-  // TODO(HiDeoo)
-  test.todo("should use the dev dependency option only for the 'add' command")
+  test("should use the dev dependency option only for the 'add' command", () => {
+    expect(getCommands('create', 'astro', { dev: true })).toEqual([
+      'npm create astro',
+      'yarn create astro',
+      'pnpm create astro',
+    ])
+  })
 })
 
 describe('create', () => {
