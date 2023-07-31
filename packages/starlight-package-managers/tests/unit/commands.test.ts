@@ -82,6 +82,16 @@ describe('run', () => {
       'nr dev',
     ])
   })
+
+  test("should generate the 'run' command with a prefix", () => {
+    expect(getCommands('run', '', { args: 'dev', prefix: 'API=https://jsonplaceholder.typicode.com' })).toEqual([
+      'API=https://jsonplaceholder.typicode.com npm run dev',
+      'API=https://jsonplaceholder.typicode.com yarn run dev',
+      'API=https://jsonplaceholder.typicode.com pnpm run dev',
+      'API=https://jsonplaceholder.typicode.com bun run dev',
+      'API=https://jsonplaceholder.typicode.com nr dev',
+    ])
+  })
 })
 
 function getCommands(...args: OmitFirstParameter<typeof getCommand>) {

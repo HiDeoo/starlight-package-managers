@@ -52,6 +52,10 @@ export function getCommand(
     throw new Error(`Command type '${type}' is not supported for package manager '${pkgManager}'.`)
   }
 
+  if (options.prefix) {
+    command = `${options.prefix} ${command}`
+  }
+
   if (type === 'add' && options.dev) {
     command += ` ${commands[pkgManager].devOption}`
   }
@@ -76,6 +80,7 @@ export type CommandType = 'add' | 'create' | 'exec' | 'run'
 export interface CommandOptions {
   args?: string
   dev?: boolean
+  prefix?: string
 }
 
 type Commands = Record<
