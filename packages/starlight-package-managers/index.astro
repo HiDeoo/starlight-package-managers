@@ -12,14 +12,83 @@ const { type = 'install' } = Astro.props
 
 // FIXME(HiDeoo)
 console.log('🚨 [index.astro:11] type:', type)
+
+// TODO(HiDeoo) margin block
 ---
 
-<Tabs>
-  {
-    pkgManagers.map((pkgManager) => (
-      <TabItem label={pkgManager}>
-        <Code code={pkgManager} lang="sh" theme="css-variables" />
-      </TabItem>
-    ))
-  }
-</Tabs>
+<starlight-package-managers>
+  <Tabs>
+    {
+      pkgManagers.map((pkgManager) => (
+        <TabItem label={pkgManager}>
+          <Code code={pkgManager} lang="sh" theme="css-variables" />
+        </TabItem>
+      ))
+    }
+  </Tabs>
+</starlight-package-managers>
+
+<script>
+  customElements.define(
+    'starlight-package-managers',
+    class StarlightPackageManagers extends HTMLElement {
+      #observer: MutationObserver
+      #observerConfig: MutationObserverInit = { attributes: true, attributeFilter: ['aria-selected'] }
+
+      #tabs: NodeListOf<HTMLAnchorElement>
+
+      constructor() {
+        super()
+
+        this.#observer = new MutationObserver(this.#handleTabChange)
+        this.#tabs = this.querySelectorAll<HTMLAnchorElement>('starlight-tabs [role="tablist"] [role="tab"]')
+
+        this.#observeTabs()
+      }
+
+      #observeTabs = () => {
+        for (const tab of this.#tabs) {
+          this.#observer.observe(tab, this.#observerConfig)
+        }
+      }
+
+      #handleTabChange = (mutations: MutationRecord[]) => {
+        this.#observer.disconnect()
+
+        for (const mutation of mutations) {
+          if (mutation.attributeName !== 'aria-selected' || !(mutation.target instanceof HTMLAnchorElement)) {
+            continue
+          }
+
+          if (mutation.target.getAttribute('aria-selected') !== 'true') {
+            continue
+          }
+
+          const newPkgManager = mutation.target.textContent?.trim() ?? ''
+          const otherTabs = [...document.querySelectorAll('starlight-package-managers')].filter((tabs) => tabs !== this)
+
+          for (const otherTab of otherTabs) {
+            const starlightTabs = otherTab.querySelector('starlight-tabs')
+
+            if (!this.#isStarlightTabs(starlightTabs)) {
+              continue
+            }
+
+            const tabs = [...starlightTabs.querySelectorAll<HTMLAnchorElement>('[role="tablist"] [role="tab"]')]
+            const newTabIndex = tabs.findIndex((tab) => tab.textContent?.trim() === newPkgManager)
+
+            starlightTabs.switchTab(tabs[newTabIndex], newTabIndex)
+          }
+        }
+
+        requestAnimationFrame(this.#observeTabs)
+      }
+
+      #isStarlightTabs(element: Element | null): element is StarlightTabs {
+        return element !== null && 'switchTab' in element
+      }
+    },
+  )
+
+  type StarlightTabs = Element & { switchTab: (tab: HTMLAnchorElement | null | undefined, index: number) => void }
+</script>
