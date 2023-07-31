@@ -5,13 +5,13 @@ title: Sync
 import { Tabs, TabItem } from '@astrojs/starlight/components'
 import PackageManagers from 'starlight-package-managers'
 
-export const pkg = 'test'
+export const pkg = 'astro'
 
-Commands using `starlight-package-managers`:
+`add` commands using `starlight-package-managers`:
 
 <PackageManagers pkg={pkg} />
 
-Commands using `@astrojs/starlight/components`:
+`add` commands using `@astrojs/starlight/components`:
 
 <Tabs>
 <TabItem label="npm">
@@ -37,10 +37,14 @@ yarn add test
 </TabItem>
 </Tabs>
 
-Other commands using `starlight-package-managers`:
+Other `add` commands using `starlight-package-managers`:
 
 <PackageManagers pkg={pkg} />
 
-And another set of commands using `starlight-package-managers`:
+Another set of `add` commands using `starlight-package-managers`:
 
 <PackageManagers pkg={pkg} />
+
+And some `create` commands using `starlight-package-managers`:
+
+<PackageManagers type="create" pkg={pkg} />
