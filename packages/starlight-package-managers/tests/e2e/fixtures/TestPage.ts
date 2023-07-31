@@ -1,6 +1,6 @@
 import type { Page } from '@playwright/test'
 
-import type { PackageManager } from '../../pkg'
+import type { PackageManager } from '../../../pkg'
 
 export class TestPage {
   constructor(public readonly page: Page) {}

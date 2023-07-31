@@ -2,16 +2,14 @@
 import { Tabs, TabItem } from '@astrojs/starlight/components'
 import { Code } from 'astro/components'
 
-import { pkgManagers } from './pkg'
+import { pkgManagers, type CommandType, getCommand } from './pkg'
 
 interface Props {
-  type?: 'install'
+  pkg: string
+  type?: CommandType
 }
 
-const { type = 'install' } = Astro.props
-
-// FIXME(HiDeoo)
-console.log('🚨 [index.astro:11] type:', type)
+const { pkg, type = 'add' } = Astro.props
 
 // TODO(HiDeoo) margin block
 ---
@@ -21,7 +19,7 @@ console.log('🚨 [index.astro:11] type:', type)
     {
       pkgManagers.map((pkgManager) => (
         <TabItem label={pkgManager}>
-          <Code code={pkgManager} lang="sh" theme="css-variables" />
+          <Code code={getCommand(pkgManager, type, pkg)} lang="sh" theme="css-variables" />
         </TabItem>
       ))
     }
