@@ -2,7 +2,7 @@
 import { Tabs, TabItem } from '@astrojs/starlight/components'
 import { Code } from 'astro/components'
 
-import { pkgManagers, type CommandType, getCommand, type CommandOptions } from './pkg'
+import { type CommandType, getCommand, type CommandOptions, getSupportedPkgManagers } from './pkg'
 
 interface Props extends CommandOptions {
   pkg: string
@@ -17,7 +17,7 @@ const { pkg, type = 'add', ...options } = Astro.props
 <starlight-package-managers>
   <Tabs>
     {
-      pkgManagers.map((pkgManager) => (
+      getSupportedPkgManagers(type).map((pkgManager) => (
         <TabItem label={pkgManager}>
           <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
         </TabItem>
