@@ -131,8 +131,36 @@ DEBUG=true nr dev`,
   })
 })
 
+describe('package managers', () => {
+  test('should use the default package managers when not overridden', () => {
+    expect(
+      getSupportedPkgManagers('add', undefined).map((pkgManager) => {
+        return getCommand(pkgManager, 'add', 'astro', {})
+      }),
+    ).toEqual(['npm i astro', 'yarn add astro', 'pnpm add astro'])
+  })
+
+  test('should support overriding the package managers', () => {
+    expect(
+      getSupportedPkgManagers('add', ['pnpm', 'bun', 'ni']).map((pkgManager) => {
+        return getCommand(pkgManager, 'add', 'astro', {})
+      }),
+    ).toEqual(['pnpm add astro', 'bun add astro', 'ni astro'])
+  })
+
+  test('should allow re-ordering the package managers', () => {
+    expect(
+      getSupportedPkgManagers('add', ['pnpm', 'npm', 'yarn']).map((pkgManager) => {
+        return getCommand(pkgManager, 'add', 'astro', {})
+      }),
+    ).toEqual(['pnpm add astro', 'npm i astro', 'yarn add astro'])
+  })
+})
+
 function getCommands(...args: OmitFirstParameter<typeof getCommand>) {
-  return getSupportedPkgManagers(args[0]).map((pkgManager) => getCommand(pkgManager, ...args))
+  return getSupportedPkgManagers(args[0], ['npm', 'yarn', 'pnpm', 'bun', 'ni']).map((pkgManager) =>
+    getCommand(pkgManager, ...args),
+  )
 }
 
 type OmitFirstParameter<TFn> = TFn extends (x: never, ...args: infer TParams) => unknown ? TParams : never

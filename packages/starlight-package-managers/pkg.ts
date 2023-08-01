@@ -1,5 +1,7 @@
 const pkgManagers = ['npm', 'yarn', 'pnpm', 'bun', 'ni'] as const
 
+const defaultPkgManagers: PackageManager[] = ['npm', 'yarn', 'pnpm']
+
 const commands: Commands = {
   npm: {
     add: 'npm i',
@@ -36,8 +38,8 @@ const commands: Commands = {
   },
 }
 
-export function getSupportedPkgManagers(type: CommandType) {
-  return pkgManagers.filter((pkgManager) => commands[pkgManager][type] !== undefined)
+export function getSupportedPkgManagers(type: CommandType, userPkgManagers: PackageManager[] | undefined) {
+  return (userPkgManagers ?? defaultPkgManagers).filter((pkgManager) => commands[pkgManager][type] !== undefined)
 }
 
 export function getCommand(
