@@ -56,6 +56,10 @@ export function getCommand(
     command = `${options.prefix} ${command}`
   }
 
+  if (options.comment) {
+    command = `# ${options.comment.replaceAll('{PKG}', pkgManager)}\n${command}`
+  }
+
   if (type === 'add' && options.dev) {
     command += ` ${commands[pkgManager].devOption}`
   }
@@ -79,6 +83,7 @@ export type CommandType = 'add' | 'create' | 'exec' | 'run'
 
 export interface CommandOptions {
   args?: string
+  comment?: string
   dev?: boolean
   prefix?: string
 }

@@ -58,6 +58,28 @@ describe('create', () => {
       'pnpm create astro --template starlight',
     ])
   })
+
+  test("should generate the 'create' command with a comment", () => {
+    expect(getCommands('create', 'astro', { comment: 'create a new project' })).toEqual([
+      `# create a new project
+npm create astro`,
+      `# create a new project
+yarn create astro`,
+      `# create a new project
+pnpm create astro`,
+    ])
+  })
+
+  test("should generate the 'create' command with a comment including the package manager", () => {
+    expect(getCommands('create', 'astro', { comment: 'create a new project with {PKG} and {PKG}' })).toEqual([
+      `# create a new project with npm and npm
+npm create astro`,
+      `# create a new project with yarn and yarn
+yarn create astro`,
+      `# create a new project with pnpm and pnpm
+pnpm create astro`,
+    ])
+  })
 })
 
 describe('exec', () => {
@@ -90,6 +112,21 @@ describe('run', () => {
       'API=https://jsonplaceholder.typicode.com pnpm run dev',
       'API=https://jsonplaceholder.typicode.com bun run dev',
       'API=https://jsonplaceholder.typicode.com nr dev',
+    ])
+  })
+
+  test("should generate the 'run' command with a prefix and a comment", () => {
+    expect(getCommands('run', '', { args: 'dev', comment: 'debug the thingy', prefix: 'DEBUG=true' })).toEqual([
+      `# debug the thingy
+DEBUG=true npm run dev`,
+      `# debug the thingy
+DEBUG=true yarn run dev`,
+      `# debug the thingy
+DEBUG=true pnpm run dev`,
+      `# debug the thingy
+DEBUG=true bun run dev`,
+      `# debug the thingy
+DEBUG=true nr dev`,
     ])
   })
 })
