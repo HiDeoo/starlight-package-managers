@@ -41,17 +41,27 @@ const { pkg, type = 'add', ...options } = Astro.props
         this.#observer = new MutationObserver(this.#handleTabChange)
         this.#tabs = this.querySelectorAll<HTMLAnchorElement>('starlight-tabs [role="tablist"] [role="tab"]')
 
-        this.#observeTabs()
+        this.observeTabs()
       }
 
-      #observeTabs = () => {
+      observeTabs = () => {
         for (const tab of this.#tabs) {
           this.#observer.observe(tab, this.#observerConfig)
         }
       }
 
-      #handleTabChange = (mutations: MutationRecord[]) => {
+      disconnectTabs = () => {
         this.#observer.disconnect()
+      }
+
+      #handleTabChange = (mutations: MutationRecord[]) => {
+        const pkgTabs = [...document.querySelectorAll<this>('starlight-package-managers')]
+
+        for (const pkgTab of pkgTabs) {
+          pkgTab.disconnectTabs()
+        }
+
+        let newFocusedTab: HTMLAnchorElement | null = null
 
         for (const mutation of mutations) {
           if (mutation.attributeName !== 'aria-selected' || !(mutation.target instanceof HTMLAnchorElement)) {
@@ -62,8 +72,10 @@ const { pkg, type = 'add', ...options } = Astro.props
             continue
           }
 
-          const newPkgManager = mutation.target.textContent?.trim() ?? ''
-          const otherTabs = [...document.querySelectorAll('starlight-package-managers')].filter((tabs) => tabs !== this)
+          newFocusedTab = mutation.target
+
+          const newPkgManager = newFocusedTab.textContent?.trim() ?? ''
+          const otherTabs = pkgTabs.filter((tabs) => tabs !== this)
 
           for (const otherTab of otherTabs) {
             const starlightTabs = otherTab.querySelector('starlight-tabs')
@@ -79,7 +91,13 @@ const { pkg, type = 'add', ...options } = Astro.props
           }
         }
 
-        requestAnimationFrame(this.#observeTabs)
+        requestAnimationFrame(() => {
+          for (const pkgTab of pkgTabs) {
+            pkgTab.observeTabs()
+          }
+
+          newFocusedTab?.focus()
+        })
       }
 
       #isStarlightTabs(element: Element | null): element is StarlightTabs {

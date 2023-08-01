@@ -34,14 +34,14 @@ test('should sync the starlight-package-managers tabs when selected with a keybo
   expect(await testPage.getSelectedPackageManager(1)).toBe('npm')
   expect(await testPage.getSelectedPackageManager(2)).toBe('npm')
 
-  await testPage.getNthStarlightPackageManagers(0).getByRole('tab', { selected: true }).focus()
+  await testPage.getNthStarlightPackageManagersSelectedTab(0).focus()
   await pressArrowRightTwice()
 
   expect(await testPage.getSelectedPackageManager(0)).toBe('pnpm')
   expect(await testPage.getSelectedPackageManager(1)).toBe('pnpm')
   expect(await testPage.getSelectedPackageManager(2)).toBe('pnpm')
 
-  await testPage.getNthStarlightPackageManagers(1).getByRole('tab', { selected: true }).focus()
+  await testPage.getNthStarlightPackageManagersSelectedTab(1).focus()
   await pressArrowRightTwice()
 
   expect(await testPage.getSelectedPackageManager(0)).toBe('ni')
@@ -61,4 +61,20 @@ test('should not sync others tabs', async ({ testPage }) => {
     .textContent()
 
   expect(otherTabContent?.trim()).toBe('npm')
+})
+
+test('should preserve the expected focus', async ({ testPage }) => {
+  testPage.goto(testName)
+
+  await testPage.selectPackageManager(0, 'yarn')
+
+  expect(
+    await testPage.getNthStarlightPackageManagersSelectedTab(0).evaluate((node) => document.activeElement === node),
+  ).toBe(true)
+
+  await testPage.selectPackageManager(1, 'ni')
+
+  expect(
+    await testPage.getNthStarlightPackageManagersSelectedTab(1).evaluate((node) => document.activeElement === node),
+  ).toBe(true)
 })
