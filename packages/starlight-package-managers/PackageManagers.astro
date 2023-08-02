@@ -13,8 +13,6 @@ interface Props extends CommandOptions {
 }
 
 const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
-
-// TODO(HiDeoo) margin block
 ---
 
 <starlight-package-managers>
@@ -28,6 +26,12 @@ const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
     }
   </Tabs>
 </starlight-package-managers>
+
+<style>
+  starlight-package-managers {
+    display: block;
+  }
+</style>
 
 <script>
   customElements.define(

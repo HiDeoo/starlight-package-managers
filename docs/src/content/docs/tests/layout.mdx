@@ -1,0 +1,28 @@
+---
+title: Layout
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+import PackageManagers from '../../../components/PackageManagers.astro'
+
+export const pkg = 'astro'
+
+Two consecutive commands using `starlight-package-managers`:
+
+<PackageManagers pkg={pkg} />
+
+<PackageManagers pkg={pkg} />
+
+Some text in between.
+
+<PackageManagers pkg={pkg} />
+
+Some more text.
+
+Some code followed by a command:
+
+```ts
+export const pkg = 'astro'
+```
+
+<PackageManagers pkg={pkg} />
