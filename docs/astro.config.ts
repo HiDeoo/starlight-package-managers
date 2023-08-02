@@ -5,7 +5,7 @@ export default defineConfig({
   integrations: [
     starlight({
       editLink: {
-        baseUrl: 'https://github.com/HiDeoo/starlight-package-managers/edit/main/example/',
+        baseUrl: 'https://github.com/HiDeoo/starlight-package-managers/edit/main/docs/',
       },
       sidebar: [
         { label: 'Getting Started', link: '/guides/getting-started/' },
