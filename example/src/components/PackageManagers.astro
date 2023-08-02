@@ -1,7 +1,7 @@
 ---
-import { PackageManagers as StarlightPackageManagersProps, type PackageManagersProps } from 'starlight-package-managers'
+import { PackageManagers as StarlightPackageManagers, type PackageManagersProps } from 'starlight-package-managers'
 
 type Props = PackageManagersProps
 ---
 
-<StarlightPackageManagersProps pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'ni']} {...Astro.props} />
+<StarlightPackageManagers pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'ni']} {...Astro.props} />
