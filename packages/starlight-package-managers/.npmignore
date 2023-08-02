@@ -4,3 +4,4 @@ playwright.config.ts
 tests
 tsconfig.json
 tsconfig.tsbuildinfo
+vitest.config.ts
