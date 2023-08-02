@@ -1,0 +1,26 @@
+---
+title: Demo
+tableOfContents: false
+---
+
+import { PackageManagers } from 'starlight-package-managers'
+
+:::note
+This entire documentation site is using `starlight-package-managers` to display commands so do not hesitate to check out the various pages.
+:::
+
+After installing the package, you can use the component provided by `starlight-package-managers` in any MDX files of your Starlight documentation site.
+
+```mdx
+---
+title: My Docs
+---
+
+import PackageManagers from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" />

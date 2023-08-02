@@ -9,9 +9,15 @@ export default defineConfig({
         baseUrl: 'https://github.com/HiDeoo/starlight-package-managers/edit/main/docs/',
       },
       sidebar: [
-        { label: 'Getting Started', link: '/guides/getting-started/' },
-        { label: 'Usage', link: '/guides/usage/' },
-        { label: 'Package Managers', link: '/guides/package-managers/' },
+        {
+          label: 'Guides',
+          items: [
+            { label: 'Getting Started', link: '/guides/getting-started/' },
+            { label: 'Usage', link: '/guides/usage/' },
+            { label: 'Package Managers', link: '/guides/package-managers/' },
+          ],
+        },
+        { label: 'Demo', link: '/demo/' },
       ],
       social: {
         github: 'https://github.com/HiDeoo/starlight-package-managers',
