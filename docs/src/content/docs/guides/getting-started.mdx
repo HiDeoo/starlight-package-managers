@@ -12,6 +12,13 @@ Install the Starlight Package Managers component using your favorite package man
 
 <PackageManagers pkg="starlight-package-managers" />
 
+:::note
+When using a [strict package manager](https://pnpm.io/pnpm-vs-npm#npms-flat-tree) like pnpm, you will also need to install the [Shiki](https://shiki.matsu.io/) syntax highlighter so it can be found during builds:
+
+<PackageManagers pkg="shiki" pkgManagers={['pnpm']} />
+
+:::
+
 ## Basic Usage
 
 You can now use the component in any MDX files of your Starlight documentation site.
