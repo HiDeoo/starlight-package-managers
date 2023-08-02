@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   integrations: [
     starlight({
+      customCss: ['./src/styles/custom.css'],
       editLink: {
         baseUrl: 'https://github.com/HiDeoo/starlight-package-managers/edit/main/docs/',
       },
