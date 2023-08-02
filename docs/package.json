@@ -2,7 +2,7 @@
   "name": "starlight-package-managers-docs",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "// TODO(HiDeoo)",
+  "description": "Quickly display npm related commands for multiple package managers in your Starlight documentation site.",
   "author": "HiDeoo <github@hideoo.dev> (https://hideoo.dev)",
   "type": "module",
   "scripts": {
