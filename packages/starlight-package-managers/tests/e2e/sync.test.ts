@@ -3,7 +3,7 @@ import { expect, test } from './test'
 const testName = 'sync'
 
 test('should sync the starlight-package-managers tabs when selected with a click event', async ({ testPage }) => {
-  testPage.goto(testName)
+  await testPage.goto(testName)
 
   expect(await testPage.getSelectedPackageManager(0)).toBe('npm')
   expect(await testPage.getSelectedPackageManager(1)).toBe('npm')
@@ -28,7 +28,7 @@ test('should sync the starlight-package-managers tabs when selected with a keybo
     await testPage.page.keyboard.press('ArrowRight', { delay: 50 })
   }
 
-  testPage.goto(testName)
+  await testPage.goto(testName)
 
   expect(await testPage.getSelectedPackageManager(0)).toBe('npm')
   expect(await testPage.getSelectedPackageManager(1)).toBe('npm')
@@ -50,7 +50,7 @@ test('should sync the starlight-package-managers tabs when selected with a keybo
 })
 
 test('should not sync others tabs', async ({ testPage }) => {
-  testPage.goto(testName)
+  await testPage.goto(testName)
 
   await testPage.selectPackageManager(0, 'pnpm')
 
@@ -64,7 +64,7 @@ test('should not sync others tabs', async ({ testPage }) => {
 })
 
 test('should preserve the expected focus', async ({ testPage }) => {
-  testPage.goto(testName)
+  await testPage.goto(testName)
 
   await testPage.selectPackageManager(0, 'yarn')
 

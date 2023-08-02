@@ -41,6 +41,21 @@ The code above generates the following commands:
 
 <PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
 
+:::note
+If only a single package manager is specified, the command will be displayed with no tabs.
+
+```mdx
+import PackageManagers from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" pkgManagers={['pnpm']} />
+```
+
+The code above generates the following command:
+
+<PackageManagers pkg="astro" pkgManagers={['pnpm']} />
+
+:::
+
 ## Global Customization
 
 Having to specify the `pkgManagers` prop every time can be tedious. To avoid this, you can create a custom Astro component wrapping `starlight-package-managers`:

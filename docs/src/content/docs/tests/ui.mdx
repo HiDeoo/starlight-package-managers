@@ -1,5 +1,5 @@
 ---
-title: Layout
+title: UI
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components'
@@ -26,3 +26,7 @@ export const pkg = 'astro'
 ```
 
 <PackageManagers pkg={pkg} />
+
+And a command with only 1 package manager:
+
+<PackageManagers pkg={pkg} pkgManagers={['pnpm']} />

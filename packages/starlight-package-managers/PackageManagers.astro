@@ -13,19 +13,24 @@ interface Props extends CommandOptions {
 }
 
 const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
+const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
 ---
 
-<starlight-package-managers>
-  <Tabs>
-    {
-      getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
-        <TabItem label={pkgManager}>
-          <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
-        </TabItem>
-      ))
-    }
-  </Tabs>
-</starlight-package-managers>
+{
+  singlePkgManager ? (
+    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
+  ) : (
+    <starlight-package-managers>
+      <Tabs>
+        {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
+          <TabItem label={pkgManager}>
+            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
+          </TabItem>
+        ))}
+      </Tabs>
+    </starlight-package-managers>
+  )
+}
 
 <style>
   starlight-package-managers {
