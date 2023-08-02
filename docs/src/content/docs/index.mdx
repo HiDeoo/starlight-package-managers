@@ -17,16 +17,39 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components'
-
-## Next steps
-
-// TODO(HiDeoo)
+import { Code } from 'astro/components'
 
 <CardGrid stagger>
-  <Card title="Configure the integration" icon="setting">
-    Edit your config in `astro.config.ts`.
+  <Card title="Replace" icon="close">
+    <Code code={`<Tabs>
+<TabItem label="npm">
+
+\`\`\`sh
+npm create astro@latest -- --template starlight
+\`\`\`
+
+</TabItem>
+<TabItem label="pnpm">
+
+\`\`\`sh
+pnpm create astro --template starlight
+\`\`\`
+
+</TabItem>
+<TabItem label="Yarn">
+
+\`\`\`sh
+yarn create astro --template starlight
+\`\`\`
+
+</TabItem>
+</Tabs>`} lang="mdx" theme="css-variables" />
   </Card>
-  <Card title="Read the docs" icon="open-book">
-    Learn more in [the Starlight Package Managers](/guides/getting-started/).
+  <Card title="By" icon="approve-check">
+    <Code code={`<PackageManagers
+  type="create"
+  pkg="astro@latest"
+  args="--template starlight"
+/>`} lang="mdx" theme="css-variables" />
   </Card>
 </CardGrid>
