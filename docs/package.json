@@ -26,7 +26,12 @@
   "private": true,
   "sideEffects": false,
   "keywords": [
-    "// TODO(HiDeoo)"
+    "astro-component",
+    "withastro",
+    "starlight",
+    "package",
+    "manager",
+    "npm"
   ],
   "homepage": "https://github.com/HiDeoo/starlight-package-managers",
   "repository": {
