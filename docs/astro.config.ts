@@ -10,6 +10,7 @@ export default defineConfig({
       sidebar: [
         { label: 'Getting Started', link: '/guides/getting-started/' },
         { label: 'Usage', link: '/guides/usage/' },
+        { label: 'Package Managers', link: '/guides/package-managers/' },
       ],
       social: {
         github: 'https://github.com/HiDeoo/starlight-package-managers',
