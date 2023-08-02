@@ -26,9 +26,6 @@ export class TestPage {
   async selectPackageManager(index: number, pkgManager: PackageManager) {
     await this.getNthStarlightPackageManagersSelectedTab(index).focus()
 
-    await this.getNthStarlightPackageManagers(index).getByRole('tab').filter({ hasText: pkgManager }).click()
-
-    // Wait for the focus restoration to complete.
-    return this.page.waitForTimeout(100)
+    return this.getNthStarlightPackageManagers(index).getByRole('tab').filter({ hasText: pkgManager }).click()
   }
 }

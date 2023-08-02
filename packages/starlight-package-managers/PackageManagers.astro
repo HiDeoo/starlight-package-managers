@@ -87,10 +87,9 @@ const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
               continue
             }
 
-            const tabs = [...starlightTabs.querySelectorAll<HTMLAnchorElement>('[role="tablist"] [role="tab"]')]
-            const newTabIndex = tabs.findIndex((tab) => tab.textContent?.trim() === newPkgManager)
-
-            starlightTabs.switchTab(tabs[newTabIndex], newTabIndex)
+            // We cannot use the `switchTab()` method provided by Starlight as it focuses the new tab which will cause
+            // the page to scroll for every set of tabs.
+            this.#switchTabs(starlightTabs, newPkgManager)
           }
         }
 
@@ -103,11 +102,40 @@ const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
         })
       }
 
+      // https://github.com/withastro/starlight/blob/290af4f0b5f65619fa4c65609940c3a911a7e698/packages/starlight/user-components/Tabs.astro#L116-L135
+      #switchTabs(starlightTabs: StarlightTabs, newPkgManager: string) {
+        const tabs = starlightTabs.tabs
+        const newTabIndex = tabs.findIndex((tab) => tab.textContent?.trim() === newPkgManager)
+        const newTab = tabs[newTabIndex]
+        const newPanel = starlightTabs.panels[newTabIndex]
+
+        if (!newTab || !newPanel) {
+          return
+        }
+
+        for (const tab of starlightTabs.tabs) {
+          tab.removeAttribute('aria-selected')
+          tab.setAttribute('tabindex', '-1')
+        }
+
+        for (const panel of starlightTabs.panels) {
+          panel.hidden = true
+        }
+
+        newPanel.hidden = false
+        // Restore active tab to the default tab order.
+        newTab.removeAttribute('tabindex')
+        newTab.setAttribute('aria-selected', 'true')
+      }
+
       #isStarlightTabs(element: Element | null): element is StarlightTabs {
-        return element !== null && 'switchTab' in element
+        return element instanceof Element && 'tabs' in element && 'panels' in element
       }
     },
   )
 
-  type StarlightTabs = Element & { switchTab: (tab: HTMLAnchorElement | null | undefined, index: number) => void }
+  type StarlightTabs = Element & {
+    panels: HTMLElement[]
+    tabs: HTMLAnchorElement[]
+  }
 </script>
