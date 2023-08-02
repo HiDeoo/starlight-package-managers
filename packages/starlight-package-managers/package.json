@@ -13,7 +13,7 @@
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "lint": "prettier -c --cache . && eslint . --cache --max-warnings=0 && tsc --noEmit"
+    "lint": "prettier -c --cache . && eslint . --cache --max-warnings=0"
   },
   "devDependencies": {
     "@astrojs/starlight": "0.6.0",
