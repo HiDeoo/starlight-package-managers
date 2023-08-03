@@ -58,3 +58,4 @@ jobs:
 
       - name: Test
         run: pnpm test
+        working-directory: packages/starlight-package-managers
