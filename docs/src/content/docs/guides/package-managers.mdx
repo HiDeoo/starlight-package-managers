@@ -1,0 +1,91 @@
+---
+title: Package Managers
+next: false
+---
+
+import { PackageManagers } from 'starlight-package-managers'
+import AllPackageManagers from '../../../components/PackageManagers.astro'
+
+`starlight-package-managers` supports the following package managers:
+
+- [npm](https://www.npmjs.com)
+- [yarn](https://yarnpkg.com)
+- [pnpm](https://pnpm.io)
+- [bun](https://bun.sh)
+- [ni](https://github.com/antfu/ni)
+
+## Defaults
+
+By default, `starlight-package-managers` will use `npm`, `yarn` and `pnpm`.
+
+```mdx
+import PackageManagers from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" />
+
+## Customization
+
+You can customize the package managers using the `pkgManagers` prop.
+
+```mdx
+import PackageManagers from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
+
+:::note
+If only a single package manager is specified, the command will be displayed with no tabs.
+
+```mdx
+import PackageManagers from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" pkgManagers={['pnpm']} />
+```
+
+The code above generates the following command:
+
+<PackageManagers pkg="astro" pkgManagers={['pnpm']} />
+
+:::
+
+## Global Customization
+
+Having to specify the `pkgManagers` prop every time can be tedious. To avoid this, you can create a custom Astro component wrapping `starlight-package-managers`:
+
+```astro
+---
+import {
+  PackageManagers,
+  type PackageManagersProps,
+} from 'starlight-package-managers'
+
+type Props = PackageManagersProps
+---
+
+{/* Customize the package managers to use. */}
+<StarlightPackageManagers
+  pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'ni']}
+  {...Astro.props}
+/>
+```
+
+Now you can use the custom component instead of `starlight-package-managers`:
+
+```mdx
+import PackageManagers from '@/components/AllPackageManagers.astro'
+
+<AllPackageManagers pkg="astro" />
+```
+
+The code above generates the following commands:
+
+<AllPackageManagers pkg="astro" />

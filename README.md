@@ -1,1 +1,1 @@
-# starlight-package-managers
+packages/starlight-package-managers/README.md

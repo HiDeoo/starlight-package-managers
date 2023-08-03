@@ -1,0 +1,50 @@
+---
+title: Sync
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+import PackageManagers from '../../../components/PackageManagers.astro'
+
+export const pkg = 'astro'
+
+`add` commands using `starlight-package-managers`:
+
+<PackageManagers pkg={pkg} />
+
+`add` commands using `@astrojs/starlight/components`:
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+npm i test
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm add test
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn add test
+```
+
+</TabItem>
+</Tabs>
+
+Other `add` commands using `starlight-package-managers`:
+
+<PackageManagers pkg={pkg} />
+
+Another set of `add` commands using `starlight-package-managers`:
+
+<PackageManagers pkg={pkg} />
+
+And some `create` commands using `starlight-package-managers`:
+
+<PackageManagers type="create" pkg={pkg} />

@@ -1,0 +1,33 @@
+.hero-html {
+  --size: 10rem;
+
+  font-size: var(--size);
+  justify-content: center;
+  line-height: var(--size);
+}
+
+@media (min-width: 50rem) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card .title {
+  margin-bottom: var(--sl-text-sm);
+}
+
+.card:nth-child(1) {
+  --sl-card-border: var(--sl-color-red);
+  --sl-card-bg: var(--sl-color-red-low);
+}
+
+.card:nth-child(2) {
+  --sl-card-border: var(--sl-color-green);
+  --sl-card-bg: var(--sl-color-green-low);
+
+  align-self: start;
+}
+
+.stagger {
+  --stagger-height: 0rem;
+}
