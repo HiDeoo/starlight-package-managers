@@ -17,6 +17,7 @@
     "@astrojs/starlight": "0.6.0",
     "astro": "2.9.6",
     "sharp": "0.32.4",
+    "shiki": "0.14.3",
     "starlight-package-managers": "workspace:*"
   },
   "engines": {
