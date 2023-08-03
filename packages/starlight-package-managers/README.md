@@ -20,7 +20,7 @@
 
 ## Getting Started
 
-Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/guides/getting-started/).
+Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/guides/getting-started/) or a [live demo](https://starlight-package-managers.vercel.app/demo/).
 
 ## Description
 
