@@ -19,7 +19,7 @@ import AllPackageManagers from '../../../components/PackageManagers.astro'
 By default, `starlight-package-managers` will use `npm`, `yarn` and `pnpm`.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" />
 ```
@@ -33,7 +33,7 @@ The code above generates the following commands:
 You can customize the package managers using the `pkgManagers` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
 ```
@@ -46,7 +46,7 @@ The code above generates the following commands:
 If only a single package manager is specified, the command will be displayed with no tabs.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" pkgManagers={['pnpm']} />
 ```

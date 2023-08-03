@@ -11,7 +11,7 @@ import { PackageManagers } from 'starlight-package-managers'
 title: My Docs
 ---
 
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" />
 ```
@@ -29,7 +29,7 @@ The component provided by `starlight-package-managers` supports various types of
 The `pkg` prop is used to specify the name of the package to install. You can specify one or more package names by separating them with a space.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro @astrojs/starlight" />
 ```
@@ -43,7 +43,7 @@ The code above generates the following commands:
 You can use the `dev` prop to specify that the package should be installed as a development dependency.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" dev />
 ```
@@ -57,7 +57,7 @@ The code above generates the following commands:
 To setup new or existing project, you can use the `create` type.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro@latest" />
 ```
@@ -71,7 +71,7 @@ The code above generates the following commands:
 To execute a package binary, you can use the `exec` type and specify extra arguments using the `args` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="exec" pkg="astro" args="add solid" />
 ```
@@ -85,7 +85,7 @@ The code above generates the following commands:
 To run a script defined in the package's manifest file, you can use the `run` type and specify the name of the name of the script using the `args` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="run" args="dev" />
 ```
@@ -99,7 +99,7 @@ The code above generates the following commands:
 You can provide extra arguments to any command using the `args` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro@latest" args="--template starlight" />
 ```
@@ -113,7 +113,7 @@ The code above generates the following commands:
 You can include a comment before the command using the `comment` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro" comment="create a new project" />
 ```
@@ -125,7 +125,7 @@ The code above generates the following commands:
 You can also reference the name of the selected package manager in a comment using the `{PKG}` placeholder.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers
   type="create"
@@ -147,7 +147,7 @@ The code above generates the following commands:
 You can include a prefix before the command, for example to define an environment variable, using the `prefix` prop.
 
 ```mdx
-import PackageManagers from 'starlight-package-managers'
+import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="run" args="dev" prefix="DEBUG=true" />
 ```
