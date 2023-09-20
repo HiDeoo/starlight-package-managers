@@ -12,7 +12,7 @@
   "scripts": {
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "vitest",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright install --with-deps chromium && playwright test",
     "lint": "prettier -c --cache . && eslint . --cache --max-warnings=0"
   },
   "devDependencies": {
