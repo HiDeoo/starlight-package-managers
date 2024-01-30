@@ -6,24 +6,27 @@ import { type CommandType, getCommand, type CommandOptions, getSupportedPkgManag
 export type PackageManagersProps = Props
 
 interface Props extends CommandOptions {
+  frame?: 'none' | 'terminal'
   pkg?: string | undefined
   pkgManagers?: PackageManager[]
+  title?: string | undefined
   type?: CommandType
 }
 
-const { pkg, pkgManagers, type = 'add', ...options } = Astro.props
+const { frame = 'terminal', pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
 const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
+const ecFrame = frame === 'terminal' ? 'terminal' : 'code'
 ---
 
 {
   singlePkgManager ? (
-    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" />
+    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
   ) : (
     <starlight-package-managers>
       <Tabs>
         {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
           <TabItem label={pkgManager}>
-            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" />
+            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
           </TabItem>
         ))}
       </Tabs>

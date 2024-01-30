@@ -155,3 +155,35 @@ import { PackageManagers } from 'starlight-package-managers'
 The code above generates the following commands:
 
 <PackageManagers type="run" args="dev" prefix="DEBUG=true" />
+
+## Appearance
+
+By default, commands are rendered with a terminal frame around them. You can disable this behavior and optionally provide a title for the frame.
+
+### Frame
+
+To disable the terminal frame surrounding commands, you can use the `frame` prop and set it to `none`.
+
+```mdx
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" frame="none" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" frame="none" />
+
+### Title
+
+When using the default terminal frame, you can provide a title using the `title` prop.
+
+```mdx
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" title="Install dependencies" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" title="Install dependencies" />

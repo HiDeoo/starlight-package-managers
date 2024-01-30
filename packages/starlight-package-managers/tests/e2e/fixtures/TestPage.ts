@@ -17,6 +17,10 @@ export class TestPage {
     return this.getNthStarlightPackageManagers(index).getByRole('tab', { selected: true })
   }
 
+  getNthStarlightPackageManagersSelectedTabContent(index: number) {
+    return this.getNthStarlightPackageManagers(index).getByRole('tabpanel')
+  }
+
   async getSelectedPackageManager(index: number) {
     const tabContent = await this.getNthStarlightPackageManagersSelectedTab(index).textContent()
 
