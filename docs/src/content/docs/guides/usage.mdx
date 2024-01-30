@@ -6,7 +6,7 @@ import { PackageManagers } from 'starlight-package-managers'
 
 `starlight-package-managers` exports an Astro component that you can use in any MDX files of your Starlight documentation site.
 
-```mdx
+```mdx title="src/content/docs/example.mdx"
 ---
 title: My Docs
 ---
@@ -20,15 +20,15 @@ The code above generates the following commands:
 
 <PackageManagers pkg="astro" />
 
-## Types
+## Command Types
 
 The component provided by `starlight-package-managers` supports various types of commands that can be specified using the `type` prop and defaults to the [`add` type](#add) if none is provided.
 
 ### `add`
 
-The `pkg` prop is used to specify the name of the package to install. You can specify one or more package names by separating them with a space.
+The `pkg` prop is used to specify the name(s) of the package(s) to install. You can specify one or more package names by separating them with a space.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'pkg="astro @astrojs/starlight"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro @astrojs/starlight" />
@@ -40,9 +40,9 @@ The code above generates the following commands:
 
 #### Development dependencies
 
-You can use the `dev` prop to specify that the package should be installed as a development dependency.
+You can use the `dev` prop to specify that the package(s) should be installed as a development dependency.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" "dev"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" dev />
@@ -56,7 +56,7 @@ The code above generates the following commands:
 
 To setup new or existing project, you can use the `create` type.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'type="create"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro@latest" />
@@ -70,7 +70,7 @@ The code above generates the following commands:
 
 To execute a package binary, you can use the `exec` type and specify extra arguments using the `args` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'type="exec"' 'args="add solid"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="exec" pkg="astro" args="add solid" />
@@ -84,7 +84,7 @@ The code above generates the following commands:
 
 To run a script defined in the package's manifest file, you can use the `run` type and specify the name of the name of the script using the `args` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'type="run"' 'args="dev"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="run" args="dev" />
@@ -98,7 +98,7 @@ The code above generates the following commands:
 
 You can provide extra arguments to any command using the `args` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'args="--template starlight"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro@latest" args="--template starlight" />
@@ -110,9 +110,9 @@ The code above generates the following commands:
 
 ## Comment
 
-You can include a comment before the command using the `comment` prop.
+You can include a comment before a command using the `comment` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'comment="create a new project"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="create" pkg="astro" comment="create a new project" />
@@ -124,7 +124,7 @@ The code above generates the following commands:
 
 You can also reference the name of the selected package manager in a comment using the `{PKG}` placeholder.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" "{PKG}"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers
@@ -144,9 +144,9 @@ The code above generates the following commands:
 
 ## Prefix
 
-You can include a prefix before the command, for example to define an environment variable, using the `prefix` prop.
+You can include a prefix before a command, for example to define an environment variable, using the `prefix` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'prefix="DEBUG=true"'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers type="run" args="dev" prefix="DEBUG=true" />
@@ -155,3 +155,35 @@ import { PackageManagers } from 'starlight-package-managers'
 The code above generates the following commands:
 
 <PackageManagers type="run" args="dev" prefix="DEBUG=true" />
+
+## Appearance
+
+By default, commands are rendered with a terminal frame around them. You can disable this behavior and optionally provide a title for the frame.
+
+### Frame
+
+To disable the terminal frame surrounding commands, you can use the `frame` prop and set it to `none`.
+
+```mdx title="src/content/docs/example.mdx" 'frame="none"'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" frame="none" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" frame="none" />
+
+### Title
+
+When using the default terminal frame, you can provide a title using the `title` prop.
+
+```mdx title="src/content/docs/example.mdx" 'title="Install dependencies"'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" title="Install dependencies" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" title="Install dependencies" />
