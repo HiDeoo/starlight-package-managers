@@ -1,6 +1,5 @@
 ---
-import { Tabs, TabItem } from '@astrojs/starlight/components'
-import { Code } from 'astro/components'
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
 
 import { type CommandType, getCommand, type CommandOptions, getSupportedPkgManagers, type PackageManager } from './pkg'
 
@@ -18,13 +17,13 @@ const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
 
 {
   singlePkgManager ? (
-    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
+    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" />
   ) : (
     <starlight-package-managers>
       <Tabs>
         {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
           <TabItem label={pkgManager}>
-            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" theme="css-variables" />
+            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" />
           </TabItem>
         ))}
       </Tabs>
