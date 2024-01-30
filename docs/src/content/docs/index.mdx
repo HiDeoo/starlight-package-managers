@@ -2,22 +2,25 @@
 title: Starlight Package Managers
 description: Quickly display npm related commands for multiple package managers in your Starlight documentation site.
 template: splash
+head:
+  - tag: title
+    content: Starlight Package Managers
+editUrl: false
 hero:
   tagline: Quickly display npm related commands for multiple package managers in your Starlight documentation site.
   image:
     html: '🗃'
   actions:
-    - text: Check Demo
-      link: /demo/
-      icon: right-arrow
-      variant: primary
-    - text: Getting Started
+    - text: Get Started
       link: /guides/getting-started/
       icon: rocket
+      variant: primary
+    - text: Demo
+      link: /demo/
+      icon: right-arrow
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
-import { Code } from 'astro/components'
+import { Card, CardGrid, Code } from '@astrojs/starlight/components'
 
 <CardGrid stagger>
   <Card title="Replace" icon="close">
@@ -43,13 +46,13 @@ yarn create astro --template starlight
 \`\`\`
 
 </TabItem>
-</Tabs>`} lang="mdx" theme="css-variables" />
+</Tabs>`} lang="mdx" />
   </Card>
   <Card title="By" icon="approve-check">
     <Code code={`<PackageManagers
   type="create"
   pkg="astro@latest"
   args="--template starlight"
-/>`} lang="mdx" theme="css-variables" />
+/>`} lang="mdx" />
   </Card>
 </CardGrid>
