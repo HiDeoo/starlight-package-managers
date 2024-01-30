@@ -18,7 +18,7 @@ import AllPackageManagers from '../../../components/PackageManagers.astro'
 
 By default, `starlight-package-managers` will use `npm`, `yarn` and `pnpm`.
 
-```mdx
+```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" />
@@ -32,7 +32,7 @@ The code above generates the following commands:
 
 You can customize the package managers using the `pkgManagers` prop.
 
-```mdx
+```mdx title="src/content/docs/example.mdx" 'pkgManagers={['npm', 'bun']}'
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
@@ -45,7 +45,7 @@ The code above generates the following commands:
 :::note
 If only a single package manager is specified, the command will be displayed with no tabs.
 
-```mdx
+```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" pkgManagers={['pnpm']} />
@@ -61,7 +61,7 @@ The code above generates the following command:
 
 Having to specify the `pkgManagers` prop every time can be tedious. To avoid this, you can create a custom Astro component wrapping `starlight-package-managers`:
 
-```astro
+```astro title="src/components/AllPackageManagers.astro"
 ---
 import {
   PackageManagers,
@@ -72,7 +72,7 @@ type Props = PackageManagersProps
 ---
 
 {/* Customize the package managers to use. */}
-<StarlightPackageManagers
+<PackageManagers
   pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'ni']}
   {...Astro.props}
 />
@@ -80,8 +80,8 @@ type Props = PackageManagersProps
 
 Now you can use the custom component instead of `starlight-package-managers`:
 
-```mdx
-import PackageManagers from '@/components/AllPackageManagers.astro'
+```mdx title="src/content/docs/example.mdx"
+import AllPackageManagers from '@/components/AllPackageManagers.astro'
 
 <AllPackageManagers pkg="astro" />
 ```
