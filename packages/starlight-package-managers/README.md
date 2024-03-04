@@ -2,8 +2,8 @@
   <h1>starlight-package-managers 🗃</h1>
   <p>Quickly display npm related commands for multiple package managers in your Starlight documentation site.</p>
   <p>
-    <a href="https://github.com/HiDeoo/vercel-env-push/assets/494699/12a27480-f3ff-470f-a108-e1bf73cd9146" title="Demo of starlight-package-managers">
-      <img alt="Demo of starlight-package-managers" src="https://github.com/HiDeoo/vercel-env-push/assets/494699/12a27480-f3ff-470f-a108-e1bf73cd9146" width="520" />
+    <a href="https://github.com/HiDeoo/starlight-package-managers/assets/494699/5666eb82-4e80-4ce9-ac07-3f711e51062c" title="Demo of starlight-package-managers">
+      <img alt="Demo of starlight-package-managers" src="https://github.com/HiDeoo/starlight-package-managers/assets/494699/5666eb82-4e80-4ce9-ac07-3f711e51062c" width="520" />
     </a>
   </p>
 </div>
