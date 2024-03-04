@@ -16,14 +16,14 @@
     "lint": "prettier -c --cache . && eslint . --cache --max-warnings=0"
   },
   "devDependencies": {
-    "@astrojs/starlight": "0.17.0",
+    "@astrojs/starlight": "0.21.0",
     "@playwright/test": "1.36.2",
-    "astro": "4.2.6",
+    "astro": "4.2.7",
     "vitest": "0.33.0"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.17.0",
-    "astro": ">=4.0.0"
+    "@astrojs/starlight": ">=0.21.0",
+    "astro": ">=4.2.7"
   },
   "engines": {
     "node": ">=18.14.1"
