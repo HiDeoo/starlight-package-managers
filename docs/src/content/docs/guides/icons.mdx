@@ -1,0 +1,66 @@
+---
+title: Icons
+next: false
+---
+
+import { PackageManagers } from 'starlight-package-managers'
+import AllPackageManagers from '../../../components/PackageManagers.astro'
+
+## Defaults
+
+By default, `starlight-package-managers` displays a package manager icon next to its name.
+
+```mdx title="src/content/docs/example.mdx"
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" />
+
+## Hiding Icons
+
+You can hide the package manager icon by setting the `icons` prop to `false`.
+
+```mdx title="src/content/docs/example.mdx" 'icons={false}'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" icons={false} />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" icons={false} />
+
+## Hiding icons globally
+
+Having to specify the `icons` prop every time can be tedious.
+To avoid this, you can create a custom Astro component wrapping `starlight-package-managers`:
+
+```astro title="src/components/NoIconPackageManagers.astro"
+---
+import {
+  PackageManagers,
+  type PackageManagersProps,
+} from 'starlight-package-managers'
+
+type Props = PackageManagersProps
+---
+
+{/* Hide the icons. */}
+<PackageManagers icons={false} {...Astro.props} />
+```
+
+Now you can use the custom component instead of `starlight-package-managers`:
+
+```mdx title="src/content/docs/example.mdx"
+import NoIconPackageManagers from '@/components/NoIconPackageManagers.astro'
+
+<NoIconPackageManagers pkg="astro" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" icons={false} />

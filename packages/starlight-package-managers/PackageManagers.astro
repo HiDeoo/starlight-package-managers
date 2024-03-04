@@ -1,21 +1,37 @@
 ---
 import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
+import type { ComponentProps } from 'astro/types'
 
-import { type CommandType, getCommand, type CommandOptions, getSupportedPkgManagers, type PackageManager } from './pkg'
+import {
+  type CommandOptions,
+  type CommandType,
+  getCommand,
+  getSupportedPkgManagers,
+  type PackageManager,
+  getIcon,
+} from './pkg'
 
 export type PackageManagersProps = Props
 
 interface Props extends CommandOptions {
   frame?: 'none' | 'terminal'
+  icons?: boolean
   pkg?: string | undefined
   pkgManagers?: PackageManager[]
   title?: string | undefined
   type?: CommandType
 }
 
-const { frame = 'terminal', pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
+const { frame = 'terminal', icons = true, pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
 const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
 const ecFrame = frame === 'terminal' ? 'terminal' : 'code'
+
+function getTabItemProps(pkgManager: PackageManager) {
+  const props: ComponentProps<typeof TabItem> = { label: pkgManager }
+  const icon = getIcon(pkgManager) as ComponentProps<typeof TabItem>['icon']
+  if (icons && icon) props.icon = icon
+  return props
+}
 ---
 
 {
@@ -25,7 +41,7 @@ const ecFrame = frame === 'terminal' ? 'terminal' : 'code'
     <starlight-package-managers>
       <Tabs>
         {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
-          <TabItem label={pkgManager}>
+          <TabItem {...getTabItemProps(pkgManager)}>
             <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
           </TabItem>
         ))}
