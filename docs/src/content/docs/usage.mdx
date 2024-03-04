@@ -158,7 +158,8 @@ The code above generates the following commands:
 
 ## Appearance
 
-By default, commands are rendered with a terminal frame around them. You can disable this behavior and optionally provide a title for the frame.
+By default, commands are rendered with a terminal frame around them and an icon indicating the package manager.
+You can disable this behavior and optionally provide a title for the frame.
 
 ### Frame
 
@@ -173,6 +174,21 @@ import { PackageManagers } from 'starlight-package-managers'
 The code above generates the following commands:
 
 <PackageManagers pkg="astro" frame="none" />
+
+### Icons
+
+By default, `starlight-package-managers` displays a package manager icon next to its name.
+You can disable this behavior using the `icons` prop and set it to `false`.
+
+```mdx title="src/content/docs/example.mdx" 'icons={false}'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" icons={false} />
+```
+
+The code above generates the following commands:
+
+<PackageManagers pkg="astro" icons={false} />
 
 ### Title
 

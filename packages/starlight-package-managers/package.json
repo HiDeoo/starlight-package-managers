@@ -18,7 +18,7 @@
   "devDependencies": {
     "@astrojs/starlight": "0.21.0",
     "@playwright/test": "1.36.2",
-    "astro": "4.2.7",
+    "astro": "4.3.7",
     "vitest": "0.33.0"
   },
   "peerDependencies": {

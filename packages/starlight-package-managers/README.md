@@ -20,7 +20,7 @@
 
 ## Getting Started
 
-Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/guides/getting-started/) or a [live demo](https://starlight-package-managers.vercel.app/demo/).
+Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/getting-started/) or a [live demo](https://starlight-package-managers.vercel.app/demo/).
 
 ## Description
 
@@ -61,9 +61,9 @@ By this one:
 ## Features
 
 - Support for various package managers: [npm](https://www.npmjs.com), [yarn](https://yarnpkg.com), [pnpm](https://pnpm.io), [bun](https://bun.sh) & [ni](https://github.com/antfu/ni).
-- Support for various types of command: [`add`](https://starlight-package-managers.vercel.app/guides/usage/#add), [`create`](https://starlight-package-managers.vercel.app/guides/usage/#create), [`exec`](https://starlight-package-managers.vercel.app/guides/usage/#exec) & [`run`](https://starlight-package-managers.vercel.app/guides/usage/#run).
+- Support for various types of command: [`add`](https://starlight-package-managers.vercel.app/usage/#add), [`create`](https://starlight-package-managers.vercel.app/usage/#create), [`exec`](https://starlight-package-managers.vercel.app/usage/#exec) & [`run`](https://starlight-package-managers.vercel.app/usage/#run).
 - Synced tabs between each instance on the same page.
-- Customizable output with [extra arguments](https://starlight-package-managers.vercel.app/guides/usage/#extra-arguments), [comments](https://starlight-package-managers.vercel.app/guides/usage/#comment) & [prefixes](https://starlight-package-managers.vercel.app/guides/usage/#prefix).
+- Customizable output with [extra arguments](https://starlight-package-managers.vercel.app/usage/#extra-arguments), [comments](https://starlight-package-managers.vercel.app/usage/#comment) & [prefixes](https://starlight-package-managers.vercel.app/usage/#prefix).
 
 ## Documentation
 

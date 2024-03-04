@@ -38,8 +38,20 @@ const commands: Commands = {
   },
 }
 
+const icons: Record<PackageManager, string | undefined> = {
+  npm: 'seti:npm',
+  yarn: 'seti:yarn',
+  pnpm: 'pnpm',
+  bun: 'bun',
+  ni: undefined,
+}
+
 export function getSupportedPkgManagers(type: CommandType, userPkgManagers: PackageManager[] | undefined) {
   return (userPkgManagers ?? defaultPkgManagers).filter((pkgManager) => commands[pkgManager][type] !== undefined)
+}
+
+export function getIcon(pkgManager: PackageManager) {
+  return icons[pkgManager]
 }
 
 export function getCommand(
