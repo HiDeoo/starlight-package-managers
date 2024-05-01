@@ -4,7 +4,7 @@ test('should not show tabs if only a single package manager is configured', asyn
   await testPage.goto('ui')
 
   // The component is used 6 times but one of them is configured to use a single package manager.
-  expect(await testPage.page.locator('starlight-package-managers').count()).toBe(5)
+  expect(await testPage.page.locator('starlight-tabs[data-sync-key="starlight-package-managers-pkg"]').count()).toBe(5)
 })
 
 test('should include icons by default', async ({ testPage }) => {

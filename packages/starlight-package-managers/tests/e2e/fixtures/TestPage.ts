@@ -10,7 +10,7 @@ export class TestPage {
   }
 
   getNthStarlightPackageManagers(index: number) {
-    return this.page.locator('starlight-package-managers').nth(index)
+    return this.page.locator('starlight-tabs[data-sync-key="starlight-package-managers-pkg"]').nth(index)
   }
 
   getNthStarlightPackageManagersSelectedTab(index: number) {
