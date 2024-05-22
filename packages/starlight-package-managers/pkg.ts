@@ -9,7 +9,7 @@ const commands: Commands = {
     devOption: '-D',
     exec: 'npx',
     run: 'npm run',
-    remove: 'npm remove',
+    remove: 'npm uninstall',
   },
   yarn: {
     add: 'yarn add',
