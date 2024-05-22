@@ -80,6 +80,16 @@ yarn create astro`,
 pnpm create astro`,
     ])
   })
+
+  test("should generate the 'uninstall' command", () => {
+    expect(getCommands('uninstall', 'astro', {})).toEqual([
+      'npm uninstall astro',
+      'yarn remove astro',
+      'pnpm remove astro',
+      'bun remove astro',
+      'nun astro',
+    ])
+  })
 })
 
 describe('exec', () => {
