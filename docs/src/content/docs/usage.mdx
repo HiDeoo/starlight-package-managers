@@ -94,6 +94,20 @@ The code above generates the following commands:
 
 <PackageManagers type="run" args="dev" />
 
+### `remove`
+
+The `pkg` prop is used to specify the name of the package to remove.
+
+```mdx title="src/content/docs/example.mdx" 'type="remove"'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers type="remove" pkg="@astrojs/starlight" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers type="remove" pkg="@astrojs/starlight" />
+
 ## Extra arguments
 
 You can provide extra arguments to any command using the `args` prop.
