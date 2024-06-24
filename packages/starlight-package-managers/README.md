@@ -20,7 +20,7 @@
 
 ## Getting Started
 
-Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/getting-started/) or a [live demo](https://starlight-package-managers.vercel.app/demo/).
+Want to get started immediately? Check out the [getting started guide](https://starlight-package-managers.vercel.app/getting-started/) or check out the [demo](https://starlight-package-managers.vercel.app/demo/) to see the plugin in action.
 
 ## Description
 
@@ -64,10 +64,6 @@ By this one:
 - Support for various types of command: [`add`](https://starlight-package-managers.vercel.app/usage/#add), [`create`](https://starlight-package-managers.vercel.app/usage/#create), [`exec`](https://starlight-package-managers.vercel.app/usage/#exec), [`run`](https://starlight-package-managers.vercel.app/usage/#run) & [`remove`](https://starlight-package-managers.vercel.app/usage/#remove).
 - Synced tabs between each instance on the same page.
 - Customizable output with [extra arguments](https://starlight-package-managers.vercel.app/usage/#extra-arguments), [comments](https://starlight-package-managers.vercel.app/usage/#comment) & [prefixes](https://starlight-package-managers.vercel.app/usage/#prefix).
-
-## Documentation
-
-Check out the [Starlight Package Managers documentation](https://starlight-package-managers.vercel.app).
 
 ## Related Projects
 
