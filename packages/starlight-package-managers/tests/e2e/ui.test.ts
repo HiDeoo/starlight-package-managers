@@ -10,8 +10,8 @@ test('should not show tabs if only a single package manager is configured', asyn
 test('should include icons by default', async ({ testPage }) => {
   await testPage.goto('ui')
 
-  // The component contains 5 package managers but ni does not have any icons.
-  expect(await testPage.getNthStarlightPackageManagers(0).locator('svg').count()).toBe(4)
+  // The component contains 4 package managers but ni does not have any icons.
+  expect(await testPage.getNthStarlightPackageManagers(0).locator('svg').count()).toBe(3)
 })
 
 test('should not include icons if disabled', async ({ testPage }) => {
