@@ -23,6 +23,10 @@ export default defineConfig({
             { label: 'Icons', link: '/guides/icons/' },
           ],
         },
+        {
+          label: 'Resources',
+          items: [{ label: 'Plugins and Tools', link: '/resources/starlight/' }],
+        },
         { label: 'Demo', link: '/demo/' },
       ],
       social: {

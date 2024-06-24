@@ -18,19 +18,25 @@ If you don't have one yet, you can follow the ["Getting Started"](https://starli
 
 ## Installation
 
-Install the Starlight Package Managers component using your favorite package manager:
+import { Steps } from '@astrojs/starlight/components'
 
-<PackageManagers pkg="starlight-package-managers" />
+<Steps>
 
-## Basic Usage
+1. Install the Starlight Package Managers component using your favorite package manager:
 
-You can now use the component in any MDX files of your Starlight documentation site.
+   <PackageManagers pkg="starlight-package-managers" />
 
-```mdx title="src/content/docs/example.mdx"
-import { PackageManagers } from 'starlight-package-managers'
+2. Use the component in any MDX files of your Starlight documentation site.
 
-<PackageManagers pkg="astro" />
-```
+   ```mdx title="src/content/docs/example.mdx"
+   import { PackageManagers } from 'starlight-package-managers'
+
+   <PackageManagers pkg="astro" />
+   ```
+
+3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the component.
+
+</Steps>
 
 For more details and examples, please refer to the [usage guide](/usage).
 

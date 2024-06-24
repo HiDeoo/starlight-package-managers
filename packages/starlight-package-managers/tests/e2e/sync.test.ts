@@ -15,11 +15,11 @@ test('should sync the starlight-package-managers tabs when selected with a click
   expect(await testPage.getSelectedPackageManager(1)).toBe('yarn')
   expect(await testPage.getSelectedPackageManager(2)).toBe('yarn')
 
-  await testPage.selectPackageManager(2, 'bun')
+  await testPage.selectPackageManager(2, 'ni')
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('bun')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('bun')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('bun')
+  expect(await testPage.getSelectedPackageManager(0)).toBe('ni')
+  expect(await testPage.getSelectedPackageManager(1)).toBe('ni')
+  expect(await testPage.getSelectedPackageManager(2)).toBe('ni')
 })
 
 test('should sync the starlight-package-managers tabs when selected with a keyboard event', async ({ testPage }) => {
@@ -37,9 +37,9 @@ test('should sync the starlight-package-managers tabs when selected with a keybo
   await testPage.getNthStarlightPackageManagersSelectedTab(0).focus()
   await pressArrowRightTwice()
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('pnpm')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('pnpm')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('pnpm')
+  expect(await testPage.getSelectedPackageManager(0)).toBe('yarn')
+  expect(await testPage.getSelectedPackageManager(1)).toBe('yarn')
+  expect(await testPage.getSelectedPackageManager(2)).toBe('yarn')
 
   await testPage.getNthStarlightPackageManagersSelectedTab(1).focus()
   await pressArrowRightTwice()
