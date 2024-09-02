@@ -1,6 +1,8 @@
 ---
-import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
+import { Code as ECCode, Tabs, TabItem } from '@astrojs/starlight/components'
 import type { ComponentProps } from 'astro/types'
+import { Code as AstroCode } from 'astro:components'
+import config from 'virtual:starlight/user-config'
 
 import {
   type CommandOptions,
@@ -24,7 +26,9 @@ interface Props extends CommandOptions {
 
 const { frame = 'terminal', icons = true, pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
 const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
-const ecFrame = frame === 'terminal' ? 'terminal' : 'code'
+const isUsingEC = config.expressiveCode !== false
+const ecFrame = isUsingEC ? (frame === 'terminal' ? 'terminal' : 'code') : undefined
+const Code = isUsingEC ? ECCode : AstroCode
 
 function getTabItemProps(pkgManager: PackageManager) {
   const props: ComponentProps<typeof TabItem> = { label: pkgManager }
