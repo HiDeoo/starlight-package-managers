@@ -23,7 +23,7 @@ const commands: Commands = {
     add: 'pnpm add',
     create: 'pnpm create',
     devOption: '-D',
-    exec: 'pnpm',
+    exec: 'pnpm dlx',
     run: 'pnpm run',
     remove: 'pnpm remove',
   },
