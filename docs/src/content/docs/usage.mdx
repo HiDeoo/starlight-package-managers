@@ -66,6 +66,18 @@ The code above generates the following commands:
 
 <PackageManagers type="create" pkg="astro@latest" />
 
+### `dlx`
+
+To fetch and execute a package binary, without installing it as a dependency, you can use the `dlx` type and specify extra arguments using the `args` prop.
+
+```mdx title="src/content/docs/example.mdx" 'type="dlx"'
+<PackageManagers type="dlx" pkg="serve" args="public" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers type="dlx" pkg="serve" args="public" />
+
 ### `exec`
 
 To execute a package binary, you can use the `exec` type and specify extra arguments using the `args` prop.

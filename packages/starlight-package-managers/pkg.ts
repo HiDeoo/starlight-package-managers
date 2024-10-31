@@ -7,6 +7,7 @@ const commands: Commands = {
     add: 'npm i',
     create: 'npm create',
     devOption: '-D',
+    dlx: 'npx',
     exec: 'npx',
     run: 'npm run',
     remove: 'npm uninstall',
@@ -15,6 +16,7 @@ const commands: Commands = {
     add: 'yarn add',
     create: 'yarn create',
     devOption: '-D',
+    dlx: 'yarn dlx',
     exec: 'yarn',
     run: 'yarn run',
     remove: 'yarn remove',
@@ -23,6 +25,7 @@ const commands: Commands = {
     add: 'pnpm add',
     create: 'pnpm create',
     devOption: '-D',
+    dlx: 'pnpm dlx',
     exec: 'pnpm',
     run: 'pnpm run',
     remove: 'pnpm remove',
@@ -30,6 +33,7 @@ const commands: Commands = {
   bun: {
     add: 'bun add',
     devOption: '-d',
+    dlx: 'bunx',
     exec: 'bunx',
     run: 'bun run',
     remove: 'bun remove',
@@ -37,6 +41,7 @@ const commands: Commands = {
   ni: {
     add: 'ni',
     devOption: '-D',
+    dlx: 'nlx',
     exec: 'nlx',
     run: 'nr',
     remove: 'nun',
@@ -88,7 +93,7 @@ export function getCommand(
   }
 
   if (options.args && options.args.length > 0) {
-    if (pkgManager === 'npm' && type !== 'exec' && type !== 'run') {
+    if (pkgManager === 'npm' && type !== 'dlx' && type !== 'exec' && type !== 'run') {
       command += ' --'
     }
 
@@ -98,7 +103,7 @@ export function getCommand(
   return command
 }
 
-export type CommandType = 'add' | 'create' | 'exec' | 'run' | 'remove'
+export type CommandType = 'add' | 'create' | 'dlx' | 'exec' | 'run' | 'remove'
 
 export interface CommandOptions {
   args?: string
