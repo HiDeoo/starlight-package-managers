@@ -92,6 +92,18 @@ pnpm create astro`,
   })
 })
 
+describe('dlx', () => {
+  test("should generate the 'dlx' command", () => {
+    expect(getCommands('dlx', 'serve', { args: 'public' })).toEqual([
+      'npx serve public',
+      'yarn dlx serve public',
+      'pnpm dlx serve public',
+      'bunx serve public',
+      'nlx serve public',
+    ])
+  })
+})
+
 describe('exec', () => {
   test("should generate the 'exec' command", () => {
     expect(getCommands('exec', 'astro', { args: 'add solid' })).toEqual([
