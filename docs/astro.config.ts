@@ -30,6 +30,7 @@ export default defineConfig({
         { label: 'Demo', link: '/demo/' },
       ],
       social: {
+        blueSky: 'https://bsky.app/profile/hideoo.dev',
         github: 'https://github.com/HiDeoo/starlight-package-managers',
       },
       title: 'Starlight Package Managers',
