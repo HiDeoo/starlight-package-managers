@@ -1,5 +1,5 @@
 .eslintcache
-.prettierignore
+eslint.config.mjs
 playwright.config.ts
 tests
 tsconfig.json
