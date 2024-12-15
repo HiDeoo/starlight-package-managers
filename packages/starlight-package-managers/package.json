@@ -13,21 +13,17 @@
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "vitest",
     "test:e2e": "playwright install --with-deps chromium && playwright test",
-    "lint": "eslint . --cache --max-warnings=0",
-    "format": "prettier -w --cache --ignore-unknown ."
+    "lint": "eslint . --cache --max-warnings=0"
   },
   "devDependencies": {
-    "@astrojs/starlight": "0.24.4",
-    "@playwright/test": "1.36.2",
-    "astro": "4.11.0",
-    "vitest": "0.33.0"
+    "@playwright/test": "^1.49.1",
+    "vitest": "2.1.6"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.22.0",
-    "astro": ">=4.2.7"
+    "@astrojs/starlight": ">=0.22.0"
   },
   "engines": {
-    "node": ">=18.14.1"
+    "node": ">=18.17.1"
   },
   "packageManager": "pnpm@8.6.10",
   "publishConfig": {
@@ -46,7 +42,8 @@
   "homepage": "https://github.com/HiDeoo/starlight-package-managers",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HiDeoo/starlight-package-managers.git"
+    "url": "https://github.com/HiDeoo/starlight-package-managers.git",
+    "directory": "packages/starlight-package-managers"
   },
   "bugs": "https://github.com/HiDeoo/starlight-package-managers/issues"
 }
