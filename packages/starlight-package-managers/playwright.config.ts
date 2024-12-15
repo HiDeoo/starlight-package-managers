@@ -5,7 +5,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], headless: true },
     },
   ],
   testDir: 'tests/e2e',
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'pnpm run dev',
+      command: 'pnpm build && pnpm preview',
       cwd: '../../docs',
       reuseExistingServer: !process.env['CI'],
       url: 'http://localhost:4321',
