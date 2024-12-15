@@ -24,8 +24,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       astro:
-        specifier: ^5.0.5
-        version: 5.0.5(typescript@5.7.2)
+        specifier: ^5.0.2
+        version: 5.0.2(typescript@5.7.2)
       eslint:
         specifier: ^9.17.0
         version: 9.17.0
@@ -43,13 +43,13 @@ importers:
     dependencies:
       '@astrojs/starlight':
         specifier: ^0.30.1
-        version: 0.30.1(astro@5.0.5)
+        version: 0.30.1(astro@5.0.2)
       '@hideoo/starlight-plugins-docs-components':
         specifier: ^0.2.2
-        version: 0.2.2(@astrojs/starlight@0.30.1)(astro@5.0.5)
+        version: 0.2.2(@astrojs/starlight@0.30.1)(astro@5.0.2)
       astro:
-        specifier: ^5.0.5
-        version: 5.0.5(typescript@5.7.2)
+        specifier: ^5.0.2
+        version: 5.0.2(typescript@5.7.2)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -77,13 +77,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@astro-community/astro-embed-twitter@0.5.4(astro@5.0.5):
+  /@astro-community/astro-embed-twitter@0.5.4(astro@5.0.2):
     resolution: {integrity: sha512-wQyros0Uh4L8fDOCZ9+UYMoq4u+YiJZEvjnL6ZP0KL6dcsyfma/XC2/Q2DBL5SBBiIkkFcFHmzDBIPl4HsENXw==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
     dependencies:
       '@astro-community/astro-embed-utils': 0.1.2
-      astro: 5.0.5(typescript@5.7.2)
+      astro: 5.0.2(typescript@5.7.2)
     dev: false
 
   /@astro-community/astro-embed-utils@0.1.2:
@@ -92,12 +92,12 @@ packages:
       linkedom: 0.14.26
     dev: false
 
-  /@astro-community/astro-embed-youtube@0.5.2(astro@5.0.5):
+  /@astro-community/astro-embed-youtube@0.5.2(astro@5.0.2):
     resolution: {integrity: sha512-cckWcq7mFCmI6uPpIlRolSafSQRYZBOaxIc8DaCUh8+JQAtPF7O4EdpRpZBUcvbARrWEEyHJCWrt0XOGppMniw==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
     dependencies:
-      astro: 5.0.5(typescript@5.7.2)
+      astro: 5.0.2(typescript@5.7.2)
       lite-youtube-embed: 0.3.2
     dev: false
 
@@ -106,6 +106,31 @@ packages:
 
   /@astrojs/internal-helpers@0.4.2:
     resolution: {integrity: sha512-EdDWkC3JJVcpGpqJAU/5hSk2LKXyG3mNGkzGoAuyK+xoPHbaVdSuIWoN1QTnmK3N/gGfaaAfM8gO2KDCAW7S3w==}
+
+  /@astrojs/markdown-remark@6.0.0:
+    resolution: {integrity: sha512-Tabo7xM44Pz2Yf9qpdaCCgxRmtaypi2YCinqTUNefDrWUa+OyKW62OuNeCaGwNh/ys+QAd9FUWN5/3HgPWjP4Q==}
+    dependencies:
+      '@astrojs/prism': 3.2.0
+      github-slugger: 2.0.0
+      hast-util-from-html: 2.0.3
+      hast-util-to-text: 4.0.2
+      import-meta-resolve: 4.1.0
+      js-yaml: 4.1.0
+      mdast-util-definitions: 6.0.0
+      rehype-raw: 7.0.0
+      rehype-stringify: 10.0.1
+      remark-gfm: 4.0.0
+      remark-parse: 11.0.0
+      remark-rehype: 11.1.1
+      remark-smartypants: 3.0.2
+      shiki: 1.24.2
+      unified: 11.0.5
+      unist-util-remove-position: 5.0.0
+      unist-util-visit: 5.0.0
+      unist-util-visit-parents: 6.0.1
+      vfile: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
 
   /@astrojs/markdown-remark@6.0.1:
     resolution: {integrity: sha512-CTSYijj25NfxgZi15TU3CwPwgyD1/7yA3FcdcNmB9p94nydupiUbrIiq3IqeTp2m5kCVzxbPZeC7fTwEOaNyGw==}
@@ -131,6 +156,31 @@ packages:
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@astrojs/mdx@4.0.2(astro@5.0.2):
+    resolution: {integrity: sha512-uBoXNSSAUqhf2dVtJWFbSapwNkcnCzbISW98EcybFXvNgYt9g8yPJ7+lYnf+sH5pv0c/JEW8HlBvPSi81AVRlw==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
+    peerDependencies:
+      astro: ^5.0.0
+    dependencies:
+      '@astrojs/markdown-remark': 6.0.1
+      '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
+      acorn: 8.14.0
+      astro: 5.0.2(typescript@5.7.2)
+      es-module-lexer: 1.5.4
+      estree-util-visit: 2.0.0
+      hast-util-to-html: 9.0.4
+      kleur: 4.1.5
+      rehype-raw: 7.0.0
+      remark-gfm: 4.0.0
+      remark-smartypants: 3.0.2
+      source-map: 0.7.4
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@astrojs/mdx@4.0.2(astro@5.0.5):
     resolution: {integrity: sha512-uBoXNSSAUqhf2dVtJWFbSapwNkcnCzbISW98EcybFXvNgYt9g8yPJ7+lYnf+sH5pv0c/JEW8HlBvPSi81AVRlw==}
@@ -168,6 +218,40 @@ packages:
       sitemap: 7.1.2
       stream-replace-string: 2.0.0
       zod: 3.23.8
+    dev: false
+
+  /@astrojs/starlight@0.30.1(astro@5.0.2):
+    resolution: {integrity: sha512-NHElruXD71rfPp0A1VPrpVv93VqhyLqJ7+fPc+PHluLsBsh3/Y9H0GPApjpJtxOOFvDNy0gNYvV2ZLjhc22WOg==}
+    peerDependencies:
+      astro: ^5.0.0
+    dependencies:
+      '@astrojs/mdx': 4.0.2(astro@5.0.2)
+      '@astrojs/sitemap': 3.1.6
+      '@pagefind/default-ui': 1.0.3
+      '@types/hast': 3.0.4
+      '@types/js-yaml': 4.0.9
+      '@types/mdast': 4.0.4
+      astro: 5.0.2(typescript@5.7.2)
+      astro-expressive-code: 0.38.3(astro@5.0.2)
+      bcp-47: 2.1.0
+      hast-util-from-html: 2.0.3
+      hast-util-select: 6.0.2
+      hast-util-to-string: 3.0.0
+      hastscript: 9.0.0
+      i18next: 23.16.8
+      js-yaml: 4.1.0
+      mdast-util-directive: 3.0.0
+      mdast-util-to-markdown: 2.1.0
+      mdast-util-to-string: 4.0.0
+      pagefind: 1.0.3
+      rehype: 13.0.2
+      rehype-format: 5.0.0
+      remark-directive: 3.0.0
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@astrojs/starlight@0.30.1(astro@5.0.5):
@@ -999,15 +1083,15 @@ packages:
     resolution: {integrity: sha512-qylbgiR1n1eQXfpy97+b6pbtE5tf4uxPIqCSE0mp9fw/Npc4CiUxJlMoiUYw169GXTaZzqH/lFVm2sbO2Id2Ug==}
     dev: true
 
-  /@hideoo/starlight-plugins-docs-components@0.2.2(@astrojs/starlight@0.30.1)(astro@5.0.5):
+  /@hideoo/starlight-plugins-docs-components@0.2.2(@astrojs/starlight@0.30.1)(astro@5.0.2):
     resolution: {integrity: sha512-SJUoeDvdMLgETbYn2GPXI4IDy7l2kWcfA458M4a4a6kAtTAIdguRTDgqNjPAuCyV9s74VDdKLPh3KCUvUTfBGg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@astrojs/starlight': '>=0.24.0'
     dependencies:
-      '@astrojs/starlight': 0.30.1(astro@5.0.5)
-      starlight-package-managers: 0.6.0(@astrojs/starlight@0.30.1)(astro@5.0.5)
-      starlight-showcases: 0.1.2(@astrojs/starlight@0.30.1)(astro@5.0.5)
+      '@astrojs/starlight': 0.30.1(astro@5.0.2)
+      starlight-package-managers: 0.6.0(@astrojs/starlight@0.30.1)(astro@5.0.2)
+      starlight-showcases: 0.1.2(@astrojs/starlight@0.30.1)(astro@5.0.2)
     transitivePeerDependencies:
       - astro
     dev: false
@@ -2051,6 +2135,15 @@ packages:
       - typescript
     dev: true
 
+  /astro-expressive-code@0.38.3(astro@5.0.2):
+    resolution: {integrity: sha512-Tvdc7RV0G92BbtyEOsfJtXU35w41CkM94fOAzxbQP67Wj5jArfserJ321FO4XA7WG9QMV0GIBmQq77NBIRDzpQ==}
+    peerDependencies:
+      astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
+    dependencies:
+      astro: 5.0.2(typescript@5.7.2)
+      rehype-expressive-code: 0.38.3
+    dev: false
+
   /astro-expressive-code@0.38.3(astro@5.0.5):
     resolution: {integrity: sha512-Tvdc7RV0G92BbtyEOsfJtXU35w41CkM94fOAzxbQP67Wj5jArfserJ321FO4XA7WG9QMV0GIBmQq77NBIRDzpQ==}
     peerDependencies:
@@ -2059,6 +2152,87 @@ packages:
       astro: 5.0.5(typescript@5.7.2)
       rehype-expressive-code: 0.38.3
     dev: false
+
+  /astro@5.0.2(typescript@5.7.2):
+    resolution: {integrity: sha512-MKf82vUiTZ2aK+c/8EDnLYIsToBdVVk4PuhhGdE8F/PcuUyS+oIcuCPf30iVf8WCQwXOfnYGnv1JbRjzkqUc3w==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
+    hasBin: true
+    dependencies:
+      '@astrojs/compiler': 2.10.3
+      '@astrojs/internal-helpers': 0.4.2
+      '@astrojs/markdown-remark': 6.0.0
+      '@astrojs/telemetry': 3.2.0
+      '@oslojs/encoding': 1.1.0
+      '@rollup/pluginutils': 5.1.3
+      '@types/cookie': 0.6.0
+      acorn: 8.14.0
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      boxen: 8.0.1
+      ci-info: 4.1.0
+      clsx: 2.1.1
+      common-ancestor-path: 1.0.1
+      cookie: 0.7.2
+      cssesc: 3.0.0
+      debug: 4.4.0
+      deterministic-object-hash: 2.0.2
+      devalue: 5.1.1
+      diff: 5.2.0
+      dlv: 1.1.3
+      dset: 3.1.4
+      es-module-lexer: 1.5.4
+      esbuild: 0.21.5
+      estree-walker: 3.0.3
+      fast-glob: 3.3.2
+      flattie: 1.1.1
+      github-slugger: 2.0.0
+      html-escaper: 3.0.3
+      http-cache-semantics: 4.1.1
+      js-yaml: 4.1.0
+      kleur: 4.1.5
+      magic-string: 0.30.15
+      magicast: 0.3.5
+      micromatch: 4.0.8
+      mrmime: 2.0.0
+      neotraverse: 0.6.18
+      p-limit: 6.1.0
+      p-queue: 8.0.1
+      preferred-pm: 4.0.0
+      prompts: 2.4.2
+      rehype: 13.0.2
+      semver: 7.6.3
+      shiki: 1.24.2
+      tinyexec: 0.3.1
+      tsconfck: 3.1.4(typescript@5.7.2)
+      ultrahtml: 1.5.3
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+      vite: 6.0.3
+      vitefu: 1.0.4(vite@6.0.3)
+      which-pm: 3.0.0
+      xxhash-wasm: 1.1.0
+      yargs-parser: 21.1.1
+      yocto-spinner: 0.1.2
+      zod: 3.23.8
+      zod-to-json-schema: 3.24.1(zod@3.23.8)
+      zod-to-ts: 1.2.0(typescript@5.7.2)(zod@3.23.8)
+    optionalDependencies:
+      sharp: 0.33.5
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - rollup
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - yaml
 
   /astro@5.0.5(typescript@5.7.2):
     resolution: {integrity: sha512-xfptdmurDsQcj/Anc7mU+eKlcyV7ppJIlmaSwhX3ZWwK5N/0rGKVmUqnuILgR6MB0XVJiIfublNzDGoyj4Q6BQ==}
@@ -2140,6 +2314,7 @@ packages:
       - tsx
       - typescript
       - yaml
+    dev: false
 
   /astrojs-compiler-sync@1.0.1(@astrojs/compiler@2.10.3):
     resolution: {integrity: sha512-EdJILVkc/Iiw9sLMyb2uppp/vG7YL9TgkwaEumNDflI8s0AhR5XuCFkdbA/AcCGvcBfsRH9ngy/iIP8Uybl82g==}
@@ -5962,26 +6137,26 @@ packages:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
     dev: true
 
-  /starlight-package-managers@0.6.0(@astrojs/starlight@0.30.1)(astro@5.0.5):
+  /starlight-package-managers@0.6.0(@astrojs/starlight@0.30.1)(astro@5.0.2):
     resolution: {integrity: sha512-2tE0B4ZVEZXZ1LJjcSvVXLfJP8SB2nE+nhiFgSa3fuHUPtnbzmFxLVp7jEKD8jaMXKWPYtlNTy95gJSK9W1sbQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       '@astrojs/starlight': '>=0.22.0'
       astro: '>=4.2.7'
     dependencies:
-      '@astrojs/starlight': 0.30.1(astro@5.0.5)
-      astro: 5.0.5(typescript@5.7.2)
+      '@astrojs/starlight': 0.30.1(astro@5.0.2)
+      astro: 5.0.2(typescript@5.7.2)
     dev: false
 
-  /starlight-showcases@0.1.2(@astrojs/starlight@0.30.1)(astro@5.0.5):
+  /starlight-showcases@0.1.2(@astrojs/starlight@0.30.1)(astro@5.0.2):
     resolution: {integrity: sha512-yj3RjcdWLIWdehTjne9Ethd3ff95vMbuVx/87lU4yilTQewQxjnAyOf1KSnGUgTMQT5WTqhDw8LciPBJox+b8Q==}
     engines: {node: '>=18'}
     peerDependencies:
       '@astrojs/starlight': '>=0.23.0'
     dependencies:
-      '@astro-community/astro-embed-twitter': 0.5.4(astro@5.0.5)
-      '@astro-community/astro-embed-youtube': 0.5.2(astro@5.0.5)
-      '@astrojs/starlight': 0.30.1(astro@5.0.5)
+      '@astro-community/astro-embed-twitter': 0.5.4(astro@5.0.2)
+      '@astro-community/astro-embed-youtube': 0.5.2(astro@5.0.2)
+      '@astrojs/starlight': 0.30.1(astro@5.0.2)
     transitivePeerDependencies:
       - astro
     dev: false

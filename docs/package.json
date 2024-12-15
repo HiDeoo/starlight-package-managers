@@ -16,7 +16,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.30.1",
     "@hideoo/starlight-plugins-docs-components": "^0.2.2",
-    "astro": "^5.0.5",
+    "astro": "^5.0.2",
     "sharp": "^0.33.5",
     "starlight-package-managers": "workspace:*"
   },
