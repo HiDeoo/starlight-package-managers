@@ -26,7 +26,7 @@ const commands: Commands = {
     add: 'pnpm add',
     create: 'pnpm create',
     devOption: '-D',
-    dlx: 'pnpm dlx',
+    dlx: 'pnpx',
     exec: 'pnpm',
     run: 'pnpm run',
     remove: 'pnpm remove',

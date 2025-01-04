@@ -97,7 +97,7 @@ describe('dlx', () => {
     expect(getCommands('dlx', 'serve', { args: 'public' })).toEqual([
       'npx serve public',
       'yarn dlx serve public',
-      'pnpm dlx serve public',
+      'pnpx serve public',
       'bunx serve public',
       'nlx serve public',
     ])
