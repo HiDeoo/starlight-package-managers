@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pkgManagers = ['npm', 'yarn', 'pnpm', 'bun', 'ni'] as const
 
-const defaultPkgManagers: PackageManager[] = ['npm', 'yarn', 'pnpm']
+const defaultPkgManagers: PackageManager[] = ['npm', 'pnpm', 'yarn']
 
 const commands: Commands = {
   npm: {
