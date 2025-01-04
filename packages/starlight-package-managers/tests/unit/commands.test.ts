@@ -159,7 +159,7 @@ describe('package managers', () => {
       getSupportedPkgManagers('add', undefined).map((pkgManager) => {
         return getCommand(pkgManager, 'add', 'astro', {})
       }),
-    ).toEqual(['npm i astro', 'yarn add astro', 'pnpm add astro'])
+    ).toEqual(['npm i astro', 'pnpm add astro', 'yarn add astro'])
   })
 
   test('should support overriding the package managers', () => {
