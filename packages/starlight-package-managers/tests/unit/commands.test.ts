@@ -46,7 +46,7 @@ describe('create', () => {
   test("should generate the 'create' command for supported package managers", () => {
     expect(getCommands('create', 'astro@latest', {})).toEqual([
       'npm create astro@latest',
-      'yarn create astro@latest',
+      'yarn create astro',
       'pnpm create astro@latest',
     ])
   })
