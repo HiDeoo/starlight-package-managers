@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.9.1
+
+### Patch Changes
+
+- [#30](https://github.com/HiDeoo/starlight-package-managers/pull/30) [`b88d821`](https://github.com/HiDeoo/starlight-package-managers/commit/b88d8210391e0730b9cce79bd4923b03e752a99b) Thanks [@deloreyj](https://github.com/deloreyj)! - Strips version from package names for the [`create`](https://starlight-package-managers.vercel.app/usage/#create) command type for the `yarn` package manager which [does not support](https://github.com/yarnpkg/yarn/issues/6587) versioned package names for this command type.
+
 ## 0.9.0
 
 ### Minor Changes
