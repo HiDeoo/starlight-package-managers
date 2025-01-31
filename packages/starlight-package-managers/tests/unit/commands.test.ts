@@ -44,10 +44,20 @@ describe('add', () => {
 
 describe('create', () => {
   test("should generate the 'create' command for supported package managers", () => {
+    expect(getCommands('create', 'astro', {})).toEqual(['npm create astro', 'yarn create astro', 'pnpm create astro'])
+  })
+
+  test("should strip versions for the  'create' command with yarn", () => {
     expect(getCommands('create', 'astro@latest', {})).toEqual([
       'npm create astro@latest',
       'yarn create astro',
       'pnpm create astro@latest',
+    ])
+
+    expect(getCommands('create', 'astro@5.1.2', {})).toEqual([
+      'npm create astro@5.1.2',
+      'yarn create astro',
+      'pnpm create astro@5.1.2',
     ])
   })
 
