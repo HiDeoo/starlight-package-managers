@@ -126,6 +126,42 @@ describe('exec', () => {
   })
 })
 
+describe('install', () => {
+  test("should generate the 'install' command", () => {
+    expect(getCommands('install', '', {})).toEqual(['npm install', 'yarn install', 'pnpm install', 'bun install', 'ni'])
+  })
+
+  test("should generate the 'install' command with a comment", () => {
+    expect(getCommands('install', '', { comment: 'install dependencies' })).toEqual([
+      `# install dependencies
+npm install`,
+      `# install dependencies
+yarn install`,
+      `# install dependencies
+pnpm install`,
+      `# install dependencies
+bun install`,
+      `# install dependencies
+ni`,
+    ])
+  })
+
+  test("should generate the 'install' command with a comment including the package manager", () => {
+    expect(getCommands('install', '', { comment: 'install dependencies with {PKG} and {PKG}' })).toEqual([
+      `# install dependencies with npm and npm
+npm install`,
+      `# install dependencies with yarn and yarn
+yarn install`,
+      `# install dependencies with pnpm and pnpm
+pnpm install`,
+      `# install dependencies with bun and bun
+bun install`,
+      `# install dependencies with ni and ni
+ni`,
+    ])
+  })
+})
+
 describe('run', () => {
   test("should generate the 'run' command", () => {
     expect(getCommands('run', '', { args: 'dev' })).toEqual([

@@ -10,6 +10,7 @@ const commands: Commands = {
     devOption: '-D',
     dlx: 'npx',
     exec: 'npx',
+    install: 'npm install',
     run: 'npm run',
     remove: 'npm uninstall',
   },
@@ -19,6 +20,7 @@ const commands: Commands = {
     devOption: '-D',
     dlx: 'yarn dlx',
     exec: 'yarn',
+    install: 'yarn install',
     run: 'yarn run',
     remove: 'yarn remove',
   },
@@ -28,6 +30,7 @@ const commands: Commands = {
     devOption: '-D',
     dlx: 'pnpx',
     exec: 'pnpm',
+    install: 'pnpm install',
     run: 'pnpm run',
     remove: 'pnpm remove',
   },
@@ -36,6 +39,7 @@ const commands: Commands = {
     devOption: '-d',
     dlx: 'bunx',
     exec: 'bunx',
+    install: 'bun install',
     run: 'bun run',
     remove: 'bun remove',
   },
@@ -44,6 +48,7 @@ const commands: Commands = {
     devOption: '-D',
     dlx: 'nlx',
     exec: 'nlx',
+    install: 'ni',
     run: 'nr',
     remove: 'nun',
   },
@@ -109,7 +114,7 @@ export function getCommand(
   return command
 }
 
-export type CommandType = 'add' | 'create' | 'dlx' | 'exec' | 'run' | 'remove'
+export type CommandType = 'add' | 'create' | 'dlx' | 'exec' | 'install' | 'run' | 'remove'
 
 export interface CommandOptions {
   args?: string
