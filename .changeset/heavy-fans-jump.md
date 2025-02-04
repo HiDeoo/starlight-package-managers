@@ -2,4 +2,4 @@
 'starlight-package-managers': minor
 ---
 
-Added support for the `install` command, for installing all dependencies specified in the package.json file.
+Adds the `install` command type to install all dependencies for a project.
