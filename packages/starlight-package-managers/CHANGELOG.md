@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.10.0
+
+### Minor Changes
+
+- [#32](https://github.com/HiDeoo/starlight-package-managers/pull/32) [`78ba376`](https://github.com/HiDeoo/starlight-package-managers/commit/78ba376398b5f91af2f5a1f882d54de4e660be9e) Thanks [@YonicDev](https://github.com/YonicDev)! - Adds the `install` command type to install all dependencies for a project.
+
 ## 0.9.1
 
 ### Patch Changes
