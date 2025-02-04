@@ -61,7 +61,7 @@ By this one:
 ## Features
 
 - Support for various package managers: [npm](https://www.npmjs.com), [yarn](https://yarnpkg.com), [pnpm](https://pnpm.io), [bun](https://bun.sh) & [ni](https://github.com/antfu/ni).
-- Support for various types of command: [`add`](https://starlight-package-managers.vercel.app/usage/#add), [`create`](https://starlight-package-managers.vercel.app/usage/#create), [`dlx`](https://starlight-package-managers.vercel.app/usage/#dlx), [`exec`](https://starlight-package-managers.vercel.app/usage/#exec), [`install`](https://starlight-package-managers.vercel.app/usage/#install), [`run`](https://starlight-package-managers.vercel.app/usage/#run) & [`remove`](https://starlight-package-managers.vercel.app/usage/#remove).
+- Support for various types of command: [`add`](https://starlight-package-managers.vercel.app/usage/#add), [`create`](https://starlight-package-managers.vercel.app/usage/#create), [`dlx`](https://starlight-package-managers.vercel.app/usage/#dlx), [`exec`](https://starlight-package-managers.vercel.app/usage/#exec), [`install`](https://starlight-package-managers.vercel.app/usage/#install), [`remove`](https://starlight-package-managers.vercel.app/usage/#remove) & [`run`](https://starlight-package-managers.vercel.app/usage/#run).
 - Synced tabs between each instance on the same page.
 - Customizable output with [extra arguments](https://starlight-package-managers.vercel.app/usage/#extra-arguments), [comments](https://starlight-package-managers.vercel.app/usage/#comment) & [prefixes](https://starlight-package-managers.vercel.app/usage/#prefix).
 

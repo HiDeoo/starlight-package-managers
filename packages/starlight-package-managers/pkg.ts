@@ -114,7 +114,7 @@ export function getCommand(
   return command
 }
 
-export type CommandType = 'add' | 'create' | 'dlx' | 'exec' | 'install' | 'run' | 'remove'
+export type CommandType = 'add' | 'create' | 'dlx' | 'exec' | 'install' | 'remove' | 'run'
 
 export interface CommandOptions {
   args?: string

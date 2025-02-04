@@ -106,20 +106,6 @@ The code above generates the following commands:
 
 <PackageManagers type="install" />
 
-### `run`
-
-To run a script defined in the package's manifest file, you can use the `run` type and specify the name of the name of the script using the `args` prop.
-
-```mdx title="src/content/docs/example.mdx" 'type="run"' 'args="dev"'
-import { PackageManagers } from 'starlight-package-managers'
-
-<PackageManagers type="run" args="dev" />
-```
-
-The code above generates the following commands:
-
-<PackageManagers type="run" args="dev" />
-
 ### `remove`
 
 The `pkg` prop is used to specify the name of the package to remove.
@@ -133,6 +119,20 @@ import { PackageManagers } from 'starlight-package-managers'
 The code above generates the following commands:
 
 <PackageManagers type="remove" pkg="@astrojs/starlight" />
+
+### `run`
+
+To run a script defined in the package's manifest file, you can use the `run` type and specify the name of the name of the script using the `args` prop.
+
+```mdx title="src/content/docs/example.mdx" 'type="run"' 'args="dev"'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers type="run" args="dev" />
+```
+
+The code above generates the following commands:
+
+<PackageManagers type="run" args="dev" />
 
 ## Extra arguments
 
