@@ -8,6 +8,7 @@ next:
 ---
 
 import { PackageManagers } from 'starlight-package-managers'
+import { Preview } from '@hideoo/starlight-plugins-docs-components'
 
 :::tip[Did you know?]
 This entire documentation site is using `starlight-package-managers` to display commands so do not hesitate to check out the various pages.
@@ -15,15 +16,17 @@ This entire documentation site is using `starlight-package-managers` to display 
 
 After installing the package, you can use the component provided by `starlight-package-managers` in any MDX files of your Starlight documentation site.
 
+<Preview>
+
 ```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" />
 
-<PackageManagers pkg="astro" />
+</Preview>
 
 Package manager tabs are also synced between each instance on the same page.
 

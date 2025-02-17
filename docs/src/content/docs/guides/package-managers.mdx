@@ -3,6 +3,7 @@ title: Package Managers
 ---
 
 import { PackageManagers } from 'starlight-package-managers'
+import { Preview } from '@hideoo/starlight-plugins-docs-components'
 import AllPackageManagers from '../../../components/AllPackageManagers.astro'
 
 `starlight-package-managers` supports the following package managers:
@@ -17,19 +18,23 @@ import AllPackageManagers from '../../../components/AllPackageManagers.astro'
 
 By default, `starlight-package-managers` will use `npm`, `yarn` and `pnpm`.
 
+<Preview>
+
 ```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
 
 <PackageManagers pkg="astro" />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" />
 
-<PackageManagers pkg="astro" />
+</Preview>
 
 ## Customization
 
 You can customize the package managers using the `pkgManagers` prop.
+
+<Preview>
 
 ```mdx title="src/content/docs/example.mdx" 'pkgManagers={['npm', 'bun']}'
 import { PackageManagers } from 'starlight-package-managers'
@@ -37,12 +42,14 @@ import { PackageManagers } from 'starlight-package-managers'
 <PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" pkgManagers={['npm', 'bun']} />
 
-<PackageManagers pkg="astro" pkgManagers={['npm', 'bun']} />
+</Preview>
 
 :::note
 If only a single package manager is specified, the command will be displayed with no tabs.
+
+<Preview>
 
 ```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
@@ -50,9 +57,9 @@ import { PackageManagers } from 'starlight-package-managers'
 <PackageManagers pkg="astro" pkgManagers={['pnpm']} />
 ```
 
-The code above generates the following command:
+<PackageManagers slot="preview" pkg="astro" pkgManagers={['pnpm']} />
 
-<PackageManagers pkg="astro" pkgManagers={['pnpm']} />
+</Preview>
 
 :::
 
@@ -79,12 +86,14 @@ type Props = PackageManagersProps
 
 Now you can use the custom component instead of `starlight-package-managers`:
 
+<Preview>
+
 ```mdx title="src/content/docs/example.mdx"
 import AllPackageManagers from '@/components/AllPackageManagers.astro'
 
 <AllPackageManagers pkg="astro" />
 ```
 
-The code above generates the following commands:
+<AllPackageManagers slot="preview" pkg="astro" />
 
-<AllPackageManagers pkg="astro" />
+</Preview>

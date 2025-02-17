@@ -4,10 +4,13 @@ next: false
 ---
 
 import { PackageManagers } from 'starlight-package-managers'
+import { Preview } from '@hideoo/starlight-plugins-docs-components'
 
 ## Defaults
 
 By default, `starlight-package-managers` displays a package manager icon next to its name.
+
+<Preview>
 
 ```mdx title="src/content/docs/example.mdx"
 import { PackageManagers } from 'starlight-package-managers'
@@ -15,13 +18,15 @@ import { PackageManagers } from 'starlight-package-managers'
 <PackageManagers pkg="astro" />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" />
 
-<PackageManagers pkg="astro" />
+</Preview>
 
 ## Hiding Icons
 
 You can hide the package manager icon by setting the `icons` prop to `false`.
+
+<Preview>
 
 ```mdx title="src/content/docs/example.mdx" 'icons={false}'
 import { PackageManagers } from 'starlight-package-managers'
@@ -29,9 +34,9 @@ import { PackageManagers } from 'starlight-package-managers'
 <PackageManagers pkg="astro" icons={false} />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" icons={false} />
 
-<PackageManagers pkg="astro" icons={false} />
+</Preview>
 
 ## Hiding icons globally
 
@@ -54,12 +59,14 @@ type Props = PackageManagersProps
 
 Now you can use the custom component instead of `starlight-package-managers`:
 
+<Preview>
+
 ```mdx title="src/content/docs/example.mdx"
 import NoIconPackageManagers from '@/components/NoIconPackageManagers.astro'
 
 <NoIconPackageManagers pkg="astro" />
 ```
 
-The code above generates the following commands:
+<PackageManagers slot="preview" pkg="astro" icons={false} />
 
-<PackageManagers pkg="astro" icons={false} />
+</Preview>
