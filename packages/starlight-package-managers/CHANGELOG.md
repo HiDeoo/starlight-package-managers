@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.11.0
+
+### Minor Changes
+
+- [#35](https://github.com/HiDeoo/starlight-package-managers/pull/35) [`5e0b7f7`](https://github.com/HiDeoo/starlight-package-managers/commit/5e0b7f7c6a9eab7b1ff4d4eaf6927d90c2a33d7d) Thanks [@notpushkin](https://github.com/notpushkin)! - Adds support for the `create` command type with `bun`.
+
 ## 0.10.0
 
 ### Minor Changes
