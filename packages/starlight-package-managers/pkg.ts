@@ -36,6 +36,7 @@ const commands: Commands = {
   },
   bun: {
     add: 'bun add',
+    create: 'bun create',
     devOption: '-d',
     dlx: 'bunx',
     exec: 'bunx',
