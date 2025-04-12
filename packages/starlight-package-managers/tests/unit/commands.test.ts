@@ -38,13 +38,19 @@ describe('add', () => {
       'npm create astro',
       'yarn create astro',
       'pnpm create astro',
+      'bun create astro',
     ])
   })
 })
 
 describe('create', () => {
   test("should generate the 'create' command for supported package managers", () => {
-    expect(getCommands('create', 'astro', {})).toEqual(['npm create astro', 'yarn create astro', 'pnpm create astro'])
+    expect(getCommands('create', 'astro', {})).toEqual([
+      'npm create astro',
+      'yarn create astro',
+      'pnpm create astro',
+      'bun create astro',
+    ])
   })
 
   test("should strip versions for the  'create' command with yarn", () => {
@@ -52,12 +58,14 @@ describe('create', () => {
       'npm create astro@latest',
       'yarn create astro',
       'pnpm create astro@latest',
+      'bun create astro@latest',
     ])
 
     expect(getCommands('create', 'astro@5.1.2', {})).toEqual([
       'npm create astro@5.1.2',
       'yarn create astro',
       'pnpm create astro@5.1.2',
+      'bun create astro@5.1.2',
     ])
   })
 
@@ -66,6 +74,7 @@ describe('create', () => {
       'npm create astro -- --template starlight',
       'yarn create astro --template starlight',
       'pnpm create astro --template starlight',
+      'bun create astro --template starlight',
     ])
   })
 
@@ -77,6 +86,8 @@ npm create astro`,
 yarn create astro`,
       `# create a new project
 pnpm create astro`,
+      `# create a new project
+bun create astro`,
     ])
   })
 
@@ -88,6 +99,8 @@ npm create astro`,
 yarn create astro`,
       `# create a new project with pnpm and pnpm
 pnpm create astro`,
+      `# create a new project with bun and bun
+bun create astro`,
     ])
   })
 
