@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.11.1
+
+### Patch Changes
+
+- [#37](https://github.com/HiDeoo/starlight-package-managers/pull/37) [`76e2efc`](https://github.com/HiDeoo/starlight-package-managers/commit/76e2efc631bff54985ed29b5144d3ae027cc71be) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Setups trusted publishing using OpenID Connect (OIDC) authentication — no code changes.
+
 ## 0.11.0
 
 ### Minor Changes
