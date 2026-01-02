@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const pkgManagers = ['npm', 'yarn', 'pnpm', 'bun', 'ni'] as const
+const pkgManagers = ['npm', 'yarn', 'pnpm', 'bun', 'deno', 'ni'] as const
 
 const defaultPkgManagers: PackageManager[] = ['npm', 'pnpm', 'yarn']
 
@@ -44,6 +44,15 @@ const commands: Commands = {
     run: 'bun run',
     remove: 'bun remove',
   },
+  deno: {
+    add: 'deno add',
+    devOption: '-D',
+    dlx: 'deno x',
+    exec: 'deno run',
+    install: 'deno install',
+    run: 'deno task',
+    remove: 'deno remove',
+  },
   ni: {
     add: 'ni',
     devOption: '-D',
@@ -60,6 +69,7 @@ const icons: Record<PackageManager, string | undefined> = {
   yarn: 'seti:yarn',
   pnpm: 'pnpm',
   bun: 'bun',
+  deno: 'deno',
   ni: undefined,
 }
 

@@ -9,9 +9,10 @@ import AllPackageManagers from '../../../components/AllPackageManagers.astro'
 `starlight-package-managers` supports the following package managers:
 
 - [npm](https://www.npmjs.com)
-- [yarn](https://yarnpkg.com)
+- [Yarn](https://yarnpkg.com)
 - [pnpm](https://pnpm.io)
-- [bun](https://bun.sh)
+- [Bun](https://bun.sh)
+- [Deno](https://deno.com)
 - [ni](https://github.com/antfu/ni)
 
 ## Defaults
@@ -79,7 +80,7 @@ type Props = PackageManagersProps
 
 {/* Customize the package managers to use. */}
 <PackageManagers
-  pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'ni']}
+  pkgManagers={['npm', 'yarn', 'pnpm', 'bun', 'deno', 'ni']}
   {...Astro.props}
 />
 ```
