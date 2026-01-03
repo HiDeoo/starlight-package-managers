@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.12.0
+
+### Minor Changes
+
+- [#40](https://github.com/HiDeoo/starlight-package-managers/pull/40) [`5dae046`](https://github.com/HiDeoo/starlight-package-managers/commit/5dae046851732ef4b66a89e1673f0ff353127503) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Adds support for the [Deno package manager](https://deno.com/blog/your-new-js-package-manager).
+
 ## 0.11.1
 
 ### Patch Changes
