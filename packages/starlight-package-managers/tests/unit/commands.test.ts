@@ -9,6 +9,7 @@ describe('add', () => {
       'yarn add astro',
       'pnpm add astro',
       'bun add astro',
+      'deno add astro',
       'ni astro',
     ])
   })
@@ -19,6 +20,7 @@ describe('add', () => {
       'yarn add @astrojs/starlight astro',
       'pnpm add @astrojs/starlight astro',
       'bun add @astrojs/starlight astro',
+      'deno add @astrojs/starlight astro',
       'ni @astrojs/starlight astro',
     ])
   })
@@ -29,6 +31,7 @@ describe('add', () => {
       'yarn add -D astro',
       'pnpm add -D astro',
       'bun add -d astro',
+      'deno add -D astro',
       'ni -D astro',
     ])
   })
@@ -110,6 +113,7 @@ bun create astro`,
       'yarn remove astro',
       'pnpm remove astro',
       'bun remove astro',
+      'deno remove astro',
       'nun astro',
     ])
   })
@@ -122,6 +126,7 @@ describe('dlx', () => {
       'yarn dlx serve public',
       'pnpx serve public',
       'bunx serve public',
+      'deno x serve public',
       'nlx serve public',
     ])
   })
@@ -134,6 +139,7 @@ describe('exec', () => {
       'yarn astro add solid',
       'pnpm astro add solid',
       'bunx astro add solid',
+      'deno x astro add solid',
       'nlx astro add solid',
     ])
   })
@@ -141,7 +147,14 @@ describe('exec', () => {
 
 describe('install', () => {
   test("should generate the 'install' command", () => {
-    expect(getCommands('install', '', {})).toEqual(['npm install', 'yarn install', 'pnpm install', 'bun install', 'ni'])
+    expect(getCommands('install', '', {})).toEqual([
+      'npm install',
+      'yarn install',
+      'pnpm install',
+      'bun install',
+      'deno install',
+      'ni',
+    ])
   })
 
   test("should generate the 'install' command with a comment", () => {
@@ -154,6 +167,8 @@ yarn install`,
 pnpm install`,
       `# install dependencies
 bun install`,
+      `# install dependencies
+deno install`,
       `# install dependencies
 ni`,
     ])
@@ -169,6 +184,8 @@ yarn install`,
 pnpm install`,
       `# install dependencies with bun and bun
 bun install`,
+      `# install dependencies with deno and deno
+deno install`,
       `# install dependencies with ni and ni
 ni`,
     ])
@@ -182,6 +199,7 @@ describe('run', () => {
       'yarn run dev',
       'pnpm run dev',
       'bun run dev',
+      'deno task dev',
       'nr dev',
     ])
   })
@@ -192,6 +210,7 @@ describe('run', () => {
       'API=https://jsonplaceholder.typicode.com yarn run dev',
       'API=https://jsonplaceholder.typicode.com pnpm run dev',
       'API=https://jsonplaceholder.typicode.com bun run dev',
+      'API=https://jsonplaceholder.typicode.com deno task dev',
       'API=https://jsonplaceholder.typicode.com nr dev',
     ])
   })
@@ -206,6 +225,8 @@ DEBUG=true yarn run dev`,
 DEBUG=true pnpm run dev`,
       `# debug the thingy
 DEBUG=true bun run dev`,
+      `# debug the thingy
+DEBUG=true deno task dev`,
       `# debug the thingy
 DEBUG=true nr dev`,
     ])
@@ -239,7 +260,7 @@ describe('package managers', () => {
 })
 
 function getCommands(...args: OmitFirstParameter<typeof getCommand>) {
-  return getSupportedPkgManagers(args[0], ['npm', 'yarn', 'pnpm', 'bun', 'ni']).map((pkgManager) =>
+  return getSupportedPkgManagers(args[0], ['npm', 'yarn', 'pnpm', 'bun', 'deno', 'ni']).map((pkgManager) =>
     getCommand(pkgManager, ...args),
   )
 }
