@@ -139,7 +139,7 @@ describe('exec', () => {
       'yarn astro add solid',
       'pnpm astro add solid',
       'bunx astro add solid',
-      'deno run astro add solid',
+      'deno x astro add solid',
       'nlx astro add solid',
     ])
   })

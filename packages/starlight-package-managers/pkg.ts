@@ -48,7 +48,7 @@ const commands: Commands = {
     add: 'deno add',
     devOption: '-D',
     dlx: 'deno x',
-    exec: 'deno run',
+    exec: 'deno x',
     install: 'deno install',
     run: 'deno task',
     remove: 'deno remove',
