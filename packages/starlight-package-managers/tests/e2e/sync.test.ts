@@ -1,3 +1,4 @@
+import type { TestPage } from './fixtures/TestPage'
 import { expect, test } from './test'
 
 const testName = 'sync'
@@ -5,21 +6,15 @@ const testName = 'sync'
 test('should sync the starlight-package-managers tabs when selected with a click event', async ({ testPage }) => {
   await testPage.goto(testName)
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('npm')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('npm')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('npm')
+  await expectSyncedPackageManagers(testPage, 'npm', 'npm i astro')
 
   await testPage.selectPackageManager(0, 'yarn')
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('yarn')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('yarn')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('yarn')
+  await expectSyncedPackageManagers(testPage, 'yarn', 'yarn add astro')
 
-  await testPage.selectPackageManager(2, 'ni')
+  await testPage.selectPackageManager(1, 'ni')
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('ni')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('ni')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('ni')
+  await expectSyncedPackageManagers(testPage, 'ni', 'ni astro')
 })
 
 test('should sync the starlight-package-managers tabs when selected with a keyboard event', async ({ testPage }) => {
@@ -30,23 +25,17 @@ test('should sync the starlight-package-managers tabs when selected with a keybo
 
   await testPage.goto(testName)
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('npm')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('npm')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('npm')
+  await expectSyncedPackageManagers(testPage, 'npm', 'npm i astro')
 
   await testPage.getNthStarlightPackageManagersSelectedTab(0).focus()
   await pressArrowRightTwice()
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('yarn')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('yarn')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('yarn')
+  await expectSyncedPackageManagers(testPage, 'yarn', 'yarn add astro')
 
   await testPage.getNthStarlightPackageManagersSelectedTab(1).focus()
   await pressArrowRightTwice()
 
-  expect(await testPage.getSelectedPackageManager(0)).toBe('ni')
-  expect(await testPage.getSelectedPackageManager(1)).toBe('ni')
-  expect(await testPage.getSelectedPackageManager(2)).toBe('ni')
+  await expectSyncedPackageManagers(testPage, 'ni', 'ni astro')
 })
 
 test('should not sync others tabs', async ({ testPage }) => {
@@ -68,13 +57,32 @@ test('should preserve the expected focus', async ({ testPage }) => {
 
   await testPage.selectPackageManager(0, 'yarn')
 
-  expect(
-    await testPage.getNthStarlightPackageManagersSelectedTab(0).evaluate((node) => document.activeElement === node),
-  ).toBe(true)
+  await expect(testPage.getNthStarlightPackageManagersSelectedTab(0)).toBeFocused()
 
   await testPage.selectPackageManager(1, 'ni')
 
-  expect(
-    await testPage.getNthStarlightPackageManagersSelectedTab(1).evaluate((node) => document.activeElement === node),
-  ).toBe(true)
+  await expect(testPage.getNthStarlightPackageManagersSelectedTab(1)).toBeFocused()
 })
+
+test('should restore the selected package manager across variants after reload', async ({ testPage }) => {
+  await testPage.goto(testName)
+
+  await testPage.selectPackageManager(1, 'pnpm')
+
+  await expectSyncedPackageManagers(testPage, 'pnpm', 'pnpm add astro')
+
+  await testPage.page.reload()
+
+  await expectSyncedPackageManagers(testPage, 'pnpm', 'pnpm add astro')
+})
+
+async function expectSyncedPackageManagers(testPage: TestPage, pkgManager: string, command: string) {
+  for (const index of [0, 1, 2]) {
+    await expect(testPage.getNthStarlightPackageManagersSelectedTab(index)).toHaveText(pkgManager)
+
+    const panels = testPage.getNthStarlightPackageManagers(index).locator(':scope > [role="tabpanel"]:visible')
+
+    await expect(panels).toHaveCount(1)
+    await expect(panels.locator('pre > code')).toHaveText(command)
+  }
+}

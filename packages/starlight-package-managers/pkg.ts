@@ -1,3 +1,5 @@
+import type { StarlightIcon } from '@astrojs/starlight/types'
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pkgManagers = ['npm', 'yarn', 'pnpm', 'bun', 'deno', 'ni'] as const
 
@@ -64,7 +66,7 @@ const commands: Commands = {
   },
 }
 
-const icons: Record<PackageManager, string | undefined> = {
+const icons: Record<PackageManager, StarlightIcon | undefined> = {
   npm: 'seti:npm',
   yarn: 'seti:yarn',
   pnpm: 'pnpm',
@@ -77,8 +79,11 @@ export function getSupportedPkgManagers(type: CommandType, userPkgManagers: Pack
   return (userPkgManagers ?? defaultPkgManagers).filter((pkgManager) => commands[pkgManager][type] !== undefined)
 }
 
-export function getIcon(pkgManager: PackageManager) {
-  return icons[pkgManager]
+export function getTabItemProps(pkgManager: PackageManager, showIcons: boolean) {
+  const props: { label: string; icon?: StarlightIcon } = { label: pkgManager }
+  const icon = icons[pkgManager]
+  if (showIcons && icon) props.icon = icon
+  return props
 }
 
 export function getCommand(

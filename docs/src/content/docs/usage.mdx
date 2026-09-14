@@ -236,12 +236,12 @@ import { PackageManagers } from 'starlight-package-managers'
 
 ## Appearance
 
-By default, commands are rendered with a terminal frame around them and an icon indicating the package manager.
-You can disable this behavior and optionally provide a title for the frame.
+By default, commands are rendered using [Starlight's tabs](https://starlight.astro.build/components/tabs/), a terminal frame around them and an icon indicating the package manager.
+You can tweak this behavior and optionally provide a title for the frame.
 
 ### Frame
 
-To disable the terminal frame surrounding commands when using [Expressive Code](https://starlight.astro.build/reference/configuration/#expressivecode), you can use the `frame` prop and set it to `none`.
+When using the [`tabs` variant](#variant) with [Expressive Code](https://starlight.astro.build/reference/configuration/#expressivecode), you can disable the terminal frame surrounding commands by setting the `frame` prop to `none`.
 
 <Preview>
 
@@ -274,7 +274,7 @@ import { PackageManagers } from 'starlight-package-managers'
 
 ### Title
 
-When using [Expressive Code](https://starlight.astro.build/reference/configuration/#expressivecode) and the default terminal frame, you can provide a title using the `title` prop.
+When using the [`tabs` variant](#variant) with [Expressive Code](https://starlight.astro.build/reference/configuration/#expressivecode) and the default terminal frame, you can provide a title using the `title` prop.
 
 <Preview>
 
@@ -287,3 +287,25 @@ import { PackageManagers } from 'starlight-package-managers'
 <PackageManagers slot="preview" pkg="astro" title="Install dependencies" />
 
 </Preview>
+
+### Variant
+
+The `variant` prop controls how package manager tabs are displayed.
+It defaults to `tabs`, which uses [Starlight's tabs](https://starlight.astro.build/components/tabs/) above a terminal frame.
+
+Set it to `compact` to merge the tabs with the code frame.
+
+<Preview>
+
+```mdx title="src/content/docs/example.mdx" 'variant="compact"'
+import { PackageManagers } from 'starlight-package-managers'
+
+<PackageManagers pkg="astro" variant="compact" />
+```
+
+<PackageManagers slot="preview" pkg="astro" variant="compact" />
+
+</Preview>
+
+The `compact` variant requires [Expressive Code](https://starlight.astro.build/reference/configuration/#expressivecode), which Starlight enables by default.
+It does not support the [`frame`](#frame) and [`title`](#title) props.

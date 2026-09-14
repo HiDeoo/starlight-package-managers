@@ -1,0 +1,89 @@
+---
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
+
+import type { PackageManagersProps } from './PackageManagers.astro'
+import { getCommand, getSupportedPkgManagers, getTabItemProps } from './pkg'
+
+type Props = Omit<PackageManagersProps, 'variant'>
+
+const { icons = true, pkg, pkgManagers, type = 'add', ...options } = Astro.props
+const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
+---
+
+{
+  singlePkgManager ? (
+    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" frame="terminal" />
+  ) : (
+    <div class="package-managers-compact expressive-code">
+      <Tabs syncKey="starlight-package-managers-pkg">
+        {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
+          <TabItem {...getTabItemProps(pkgManager, icons)}>
+            <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" frame="none" />
+          </TabItem>
+        ))}
+      </Tabs>
+    </div>
+  )
+}
+
+<style>
+  .package-managers-compact {
+    border: var(--ec-brdWd) solid var(--ec-brdCol);
+    border-radius: calc(var(--ec-brdRad) + var(--ec-brdWd));
+    min-width: 0;
+  }
+
+  .package-managers-compact :global(starlight-tabs) {
+    display: block;
+  }
+
+  .package-managers-compact :global(.tablist-wrapper) {
+    background-color: var(--ec-frm-edTabBarBg);
+    background-image: linear-gradient(
+      to top,
+      var(--ec-frm-edTabBarBrdBtmCol) var(--ec-brdWd),
+      transparent var(--ec-brdWd)
+    );
+    border-radius: var(--ec-brdRad) var(--ec-brdRad) 0 0;
+    overflow-x: auto;
+  }
+
+  .package-managers-compact :global([role='tablist']) {
+    border: 0;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .package-managers-compact :global([role='tab']) {
+    border-inline-end: var(--ec-brdWd) solid var(--ec-brdCol);
+    box-shadow: none;
+    font-weight: 400;
+    line-height: var(--ec-uiLineHt);
+    padding: calc(var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt)) var(--ec-uiPadInl);
+  }
+
+  .package-managers-compact :global([role='tab'][aria-selected='true']) {
+    background-color: var(--ec-frm-edActTabBg);
+    box-shadow: inset 0 var(--ec-frm-edActTabIndHt) 0 var(--ec-frm-edActTabIndTopCol);
+    color: var(--ec-frm-edActTabFg);
+  }
+
+  .package-managers-compact :global([role='tabpanel']) {
+    margin: 0;
+  }
+
+  .package-managers-compact :global([role='tabpanel'][hidden]) {
+    display: none;
+  }
+
+  .package-managers-compact :global(.frame) {
+    box-shadow: none;
+  }
+
+  .package-managers-compact :global(.frame pre) {
+    border: 0;
+    border-radius: 0 0 var(--ec-brdRad) var(--ec-brdRad);
+  }
+</style>
