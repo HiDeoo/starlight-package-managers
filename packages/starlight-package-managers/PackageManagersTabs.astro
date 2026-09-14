@@ -1,0 +1,30 @@
+---
+import { Code as ECCode, Tabs, TabItem } from '@astrojs/starlight/components'
+import { Code as AstroCode } from 'astro:components'
+import config from 'virtual:starlight/user-config'
+
+import type { PackageManagersProps } from './PackageManagers.astro'
+import { getCommand, getSupportedPkgManagers, getTabItemProps } from './pkg'
+
+type Props = Omit<PackageManagersProps, 'variant'>
+
+const { frame = 'terminal', icons = true, pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
+const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
+const isUsingEC = config.expressiveCode !== false
+const ecFrame = isUsingEC ? (frame === 'terminal' ? 'terminal' : 'code') : undefined
+const Code = isUsingEC ? ECCode : AstroCode
+---
+
+{
+  singlePkgManager ? (
+    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
+  ) : (
+    <Tabs syncKey="starlight-package-managers-pkg">
+      {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
+        <TabItem {...getTabItemProps(pkgManager, icons)}>
+          <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
+        </TabItem>
+      ))}
+    </Tabs>
+  )
+}

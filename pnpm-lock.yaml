@@ -60,7 +60,7 @@ importers:
   packages/starlight-package-managers:
     dependencies:
       '@astrojs/starlight':
-        specifier: '>=0.22.0'
+        specifier: '>=0.32.0'
         version: 0.38.1(astro@6.0.4(@types/node@24.12.0)(rollup@4.59.0)(typescript@5.9.3))
     devDependencies:
       '@playwright/test':

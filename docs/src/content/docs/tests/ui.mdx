@@ -9,7 +9,9 @@ export const pkg = 'astro'
 
 Two consecutive commands using `starlight-package-managers`:
 
-<PackageManagers pkg={pkg} />
+<div data-testid="tabs-icons">
+  <PackageManagers pkg={pkg} />
+</div>
 
 <PackageManagers pkg={pkg} />
 
@@ -27,10 +29,32 @@ export const pkg = 'astro'
 
 <PackageManagers pkg={pkg} />
 
-And a command with only 1 package manager:
+A command with only 1 package manager:
 
-<PackageManagers pkg={pkg} pkgManagers={['pnpm']} />
+<div data-testid="tabs-single">
+  <PackageManagers pkg={pkg} pkgManagers={['pnpm']} />
+</div>
 
-And a command with no icons:
+A command with no icons:
 
-<PackageManagers pkg={pkg} icons={false} />
+<div data-testid="tabs-no-icons">
+  <PackageManagers pkg={pkg} icons={false} />
+</div>
+
+A compact command:
+
+<div data-testid="compact-icons">
+  <PackageManagers pkg={pkg} variant="compact" />
+</div>
+
+A compact command with only 1 package manager:
+
+<div data-testid="compact-single">
+  <PackageManagers pkg={pkg} pkgManagers={['pnpm']} variant="compact" />
+</div>
+
+A compact command with no icons:
+
+<div data-testid="compact-no-icons">
+  <PackageManagers pkg={pkg} icons={false} variant="compact" />
+</div>

@@ -1,17 +1,7 @@
 ---
-import { Code as ECCode, Tabs, TabItem } from '@astrojs/starlight/components'
-import type { ComponentProps } from 'astro/types'
-import { Code as AstroCode } from 'astro:components'
-import config from 'virtual:starlight/user-config'
-
-import {
-  type CommandOptions,
-  type CommandType,
-  getCommand,
-  getSupportedPkgManagers,
-  type PackageManager,
-  getIcon,
-} from './pkg'
+import PackageManagersCompact from './PackageManagersCompact.astro'
+import PackageManagersTabs from './PackageManagersTabs.astro'
+import type { CommandOptions, CommandType, PackageManager } from './pkg'
 
 export type PackageManagersProps = Props
 
@@ -22,32 +12,10 @@ interface Props extends CommandOptions {
   pkgManagers?: PackageManager[]
   title?: string | undefined
   type?: CommandType
+  variant?: 'tabs' | 'compact'
 }
 
-const { frame = 'terminal', icons = true, pkg, pkgManagers, title = undefined, type = 'add', ...options } = Astro.props
-const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
-const isUsingEC = config.expressiveCode !== false
-const ecFrame = isUsingEC ? (frame === 'terminal' ? 'terminal' : 'code') : undefined
-const Code = isUsingEC ? ECCode : AstroCode
-
-function getTabItemProps(pkgManager: PackageManager) {
-  const props: ComponentProps<typeof TabItem> = { label: pkgManager }
-  const icon = getIcon(pkgManager) as ComponentProps<typeof TabItem>['icon']
-  if (icons && icon) props.icon = icon
-  return props
-}
+const { variant = 'tabs', ...props } = Astro.props
 ---
 
-{
-  singlePkgManager ? (
-    <Code code={getCommand(singlePkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
-  ) : (
-    <Tabs syncKey="starlight-package-managers-pkg">
-      {getSupportedPkgManagers(type, pkgManagers).map((pkgManager) => (
-        <TabItem {...getTabItemProps(pkgManager)}>
-          <Code code={getCommand(pkgManager, type, pkg, options)} lang="sh" {title} frame={ecFrame} />
-        </TabItem>
-      ))}
-    </Tabs>
-  )
-}
+{variant === 'compact' ? <PackageManagersCompact {...props} /> : <PackageManagersTabs {...props} />}
