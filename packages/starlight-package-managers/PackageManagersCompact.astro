@@ -62,11 +62,14 @@ const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
     font-weight: 400;
     line-height: var(--ec-uiLineHt);
     padding: calc(var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt)) var(--ec-uiPadInl);
+    padding-block-start: calc(var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt) + var(--ec-brdWd));
   }
 
   .package-managers-compact :global([role='tab'][aria-selected='true']) {
     background-color: var(--ec-frm-edActTabBg);
-    box-shadow: inset 0 var(--ec-frm-edActTabIndHt) 0 var(--ec-frm-edActTabIndTopCol);
+    box-shadow:
+      inset 0 var(--ec-frm-edActTabIndHt) 0 var(--ec-frm-edActTabIndTopCol, transparent),
+      inset 0 calc(-1 * var(--ec-frm-edActTabIndHt)) 0 var(--ec-frm-edActTabIndBtmCol, transparent);
     color: var(--ec-frm-edActTabFg);
   }
 
