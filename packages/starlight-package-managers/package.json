@@ -16,7 +16,7 @@
     "lint": "eslint . --cache --max-warnings=0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.63.0",
     "vitest": "4.1.0"
   },
   "peerDependencies": {
