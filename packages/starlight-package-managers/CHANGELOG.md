@@ -1,5 +1,19 @@
 # starlight-package-managers
 
+## 0.13.0
+
+### Minor Changes
+
+- [#48](https://github.com/HiDeoo/starlight-package-managers/pull/48) [`0db4fa7`](https://github.com/HiDeoo/starlight-package-managers/commit/0db4fa7a2cdbe28a98dc6fae4c3cdcaea35e2cdf) Thanks [@HiDeoo](https://github.com/HiDeoo)! - ⚠️ **BREAKING CHANGE:** The minimum supported version of Starlight is now version `0.32.0`.
+
+  Please use the `@astrojs/upgrade` command to upgrade your project:
+
+  ```sh
+  npx @astrojs/upgrade
+  ```
+
+- [#48](https://github.com/HiDeoo/starlight-package-managers/pull/48) [`0db4fa7`](https://github.com/HiDeoo/starlight-package-managers/commit/0db4fa7a2cdbe28a98dc6fae4c3cdcaea35e2cdf) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Adds a `variant` prop with a new `compact` option that merges package manager tabs into the code frame.
+
 ## 0.12.0
 
 ### Minor Changes
