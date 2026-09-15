@@ -103,7 +103,7 @@ export function getCommand(
   }
 
   if (options.comment) {
-    command = `# ${options.comment.replaceAll('{PKG}', pkgManager)}\n${command}`
+    command = `# ${options.comment.replaceAll('{PKG}', () => pkgManager)}\n${command}`
   }
 
   if (type === 'add' && options.dev) {
