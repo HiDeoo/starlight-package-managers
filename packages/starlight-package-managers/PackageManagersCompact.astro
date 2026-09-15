@@ -57,6 +57,7 @@ const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
   }
 
   .package-managers-compact :global([role='tab']) {
+    border-block-start: var(--ec-brdWd) solid transparent;
     border-inline-end: var(--ec-brdWd) solid var(--ec-brdCol);
     box-shadow: none;
     font-weight: 400;
@@ -66,7 +67,9 @@ const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
 
   .package-managers-compact :global([role='tab'][aria-selected='true']) {
     background-color: var(--ec-frm-edActTabBg);
-    box-shadow: inset 0 var(--ec-frm-edActTabIndHt) 0 var(--ec-frm-edActTabIndTopCol);
+    box-shadow:
+      inset 0 var(--ec-frm-edActTabIndHt) 0 var(--ec-frm-edActTabIndTopCol, transparent),
+      inset 0 calc(-1 * var(--ec-frm-edActTabIndHt)) 0 var(--ec-frm-edActTabIndBtmCol, transparent);
     color: var(--ec-frm-edActTabFg);
   }
 
