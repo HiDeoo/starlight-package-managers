@@ -57,12 +57,12 @@ const singlePkgManager = pkgManagers?.length === 1 ? pkgManagers[0] : undefined
   }
 
   .package-managers-compact :global([role='tab']) {
-    border-block-start: var(--ec-brdWd) solid transparent;
     border-inline-end: var(--ec-brdWd) solid var(--ec-brdCol);
     box-shadow: none;
     font-weight: 400;
     line-height: var(--ec-uiLineHt);
     padding: calc(var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt)) var(--ec-uiPadInl);
+    padding-block-start: calc(var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt) + var(--ec-brdWd));
   }
 
   .package-managers-compact :global([role='tab'][aria-selected='true']) {
