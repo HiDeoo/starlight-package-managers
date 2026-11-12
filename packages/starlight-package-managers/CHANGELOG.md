@@ -1,5 +1,11 @@
 # starlight-package-managers
 
+## 0.13.1
+
+### Patch Changes
+
+- [#54](https://github.com/HiDeoo/starlight-package-managers/pull/54) [`9f93d28`](https://github.com/HiDeoo/starlight-package-managers/commit/9f93d28d088cbebb2a7ed9f82c0502e86971f90c) Thanks [@HiDeoo](https://github.com/HiDeoo)! - Fixes yarn `create` commands missing the package name for scoped packages.
+
 ## 0.13.0
 
 ### Minor Changes
