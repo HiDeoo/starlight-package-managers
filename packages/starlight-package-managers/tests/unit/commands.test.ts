@@ -72,6 +72,38 @@ describe('create', () => {
     ])
   })
 
+  test("should preserve scoped package names for the 'create' command", () => {
+    expect(getCommands('create', '@scope', {})).toEqual([
+      'npm create @scope',
+      'yarn create @scope',
+      'pnpm create @scope',
+      'bun create @scope',
+    ])
+
+    expect(getCommands('create', '@scope/app', {})).toEqual([
+      'npm create @scope/app',
+      'yarn create @scope/app',
+      'pnpm create @scope/app',
+      'bun create @scope/app',
+    ])
+  })
+
+  test("should strip versions from scoped packages for the 'create' command with yarn", () => {
+    expect(getCommands('create', '@scope@1.0.0', {})).toEqual([
+      'npm create @scope@1.0.0',
+      'yarn create @scope',
+      'pnpm create @scope@1.0.0',
+      'bun create @scope@1.0.0',
+    ])
+
+    expect(getCommands('create', '@scope/app@latest', {})).toEqual([
+      'npm create @scope/app@latest',
+      'yarn create @scope/app',
+      'pnpm create @scope/app@latest',
+      'bun create @scope/app@latest',
+    ])
+  })
+
   test("should generate the 'create' command with additional arguments", () => {
     expect(getCommands('create', 'astro', { args: '--template starlight' })).toEqual([
       'npm create astro -- --template starlight',

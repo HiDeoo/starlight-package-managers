@@ -115,7 +115,7 @@ export function getCommand(
      * Strip `@version` from package name for yarn create commands.
      * @see https://github.com/yarnpkg/yarn/issues/6587
      */
-    const processedPkg = type === 'create' && pkgManager === 'yarn' ? pkg.replace(/@[^\s]+/, '') : pkg
+    const processedPkg = type === 'create' && pkgManager === 'yarn' ? pkg.replace(/(?<=[^\s])@[^\s]+/, '') : pkg
     command += ` ${processedPkg}`
   }
 
